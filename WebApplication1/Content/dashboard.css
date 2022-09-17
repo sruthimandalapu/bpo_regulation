@@ -1,0 +1,92 @@
+﻿
+/*
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css');
+@import url('https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css'); 
+.container {
+    margin-left: 50px;
+    padding-left:100px;
+}
+
+.card-box {
+    position: relative;
+    color: rgba(0,0,0,0.4);
+    padding: 20px 10px 40px;
+    margin: 20px 0px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px 5px rgba(0,0,0,0.15);
+}
+
+    .card-box:hover {
+        text-decoration: none;
+        color: #f1f1f1;
+    }
+
+        .card-box:hover .icon i {
+           
+            transition: 1s;
+            -webkit-transition: 1s;
+        }
+
+    .card-box .inner {
+        padding: 5px 10px 0 10px;
+    }
+
+    .card-box h3 {
+        font-size: 27px;
+        font-weight: bold;
+        margin: 0 0 8px 0;
+        white-space: nowrap;
+        padding: 0;
+        text-align: left;
+    }
+
+    .card-box p {
+        font-size: 18px;
+        font-family: Calibri;
+    }
+
+    .card-box .icon {
+        position: absolute;
+        top: auto;
+        bottom: 2px;
+        right: 5px;
+        z-index: 0;
+        font-size: 20px;
+        color: rgb(231,254,255);
+    }
+
+    .card-box .card-box-footer {
+        position: absolute;
+        left: 0px;
+        bottom: 0px;
+        text-align: center;
+        padding: 3px 0;
+        color: rgba(255, 255, 255, 0.8);
+        border-radius: 10px;
+        background: rgba(0, 0, 0, 0.1);
+        width: 100%;
+        text-decoration: none;
+        font-family: Calibri;
+    }
+
+    .card-box:hover .card-box-footer {
+        background: rgba(0, 0, 0, 0.3);
+    }
+
+.bg-blue {
+    background-color: white !important;
+}
+
+.bg-green {
+    background-color: white !important;
+}
+
+.bg-orange {
+    background-color: white !important;
+}
+
+.bg-red {
+    background-color: white !important;
+}
+*/
