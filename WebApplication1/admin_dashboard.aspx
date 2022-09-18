@@ -1,6 +1,7 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true"  CodeBehind="admin_dashboard.aspx.cs" Inherits="WebApplication1.admin_dashboard" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
+     <%@ Import Namespace="System.Data.SqlClient" %>  
     <!--
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"> -->
@@ -41,7 +42,7 @@
             }
             .card-box p {
                 font-size: 16px;
-				 font-family:Calibri;
+				 font-family: 'Josefin Sans', sans-serif; 
                     letter-spacing:0.5px;
             }
             .card-box .icon {
@@ -64,10 +65,12 @@
                 background: rgba(0, 0, 0, 0.1);
                 width: 100%;
                 text-decoration: none;
-				font-family: 'Josefin Sans', sans-serif;
+				font-family: 'Josefin Sans', sans-serif; 
+                /* font-family:Calibri; */
+  letter-spacing:0.45px;
             }
             .card-box:hover .card-box-footer {
-                font-family:Calibri;
+                font-family: 'Josefin Sans', sans-serif; 
                     letter-spacing:0.5px;
                 background: rgba(0, 0, 0, 0.3);
             }
@@ -92,28 +95,52 @@
                 <div class="div1" style="width:230px;float:left;margin-right:30px;">
                     <div class="card-box bg-blue">
                         <div class="inner">
-                            <h3> 5</h3>
+                            <h3> 
+                                <%
+                  SqlConnection connection = new SqlConnection("Data Source=LAPTOP-IPNJ48D\\SQLEXPRESS;Initial Catalog=bpo;Integrated Security=true");
+                  connection.Open();
+                  SqlCommand c = new SqlCommand("select count(*) c from login where registered_date BETWEEN GETDATE()-7 AND GETDATE() AND profile_type='employee'", connection);  
+                  SqlDataReader r = c.ExecuteReader();
+                  if (r.Read())
+                  { %>
+                <%= Convert.ToString(r["c"]) %>
+                  <% r.Close();
+                      }
+                %>
+
+                            </h3>
                             <p> New Emp Registered</p>
                         </div>
 						<!--
                         <div class="icon">
                             <i class="fa fa-users" aria-hidden="true"></i>
                         </div> -->
-                        <a href="#" class="card-box-footer">View More <i class="fa fa-arrow-circle-right"></i></a>
+                        <a href="admin_new_emp" class="card-box-footer">View More <i class="fa fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
 
                 <div class="div2" style="width:230px;float:left;">
                     <div class="card-box bg-red">
                         <div class="inner">
-                            <h3> 10 </h3>
+                            <h3> 
+                            <%
+               SqlCommand cmd = new SqlCommand("select count(*) c from tasks where task_closed_date BETWEEN GETDATE()-7 AND GETDATE() AND task_status='Closed' AND task_assigned_email='" + Session["email"]+"'", connection);  
+               SqlDataReader rea = cmd.ExecuteReader();
+               if (rea.Read())
+                  { %>
+                <%= Convert.ToString(rea["c"]) %>
+                  <% rea.Close();
+                      }
+                %>
+                        
+                            </h3>
                             <p> Status Closed </p>
                         </div>
 						<!--
                         <div class="icon">
                             <i class="fa fa-users"></i>
                         </div> -->
-                        <a href="#" class="card-box-footer">View More <i class="fa fa-arrow-circle-right"></i></a>
+                        <a href="admin_status_close" class="card-box-footer">View More <i class="fa fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
             </div>

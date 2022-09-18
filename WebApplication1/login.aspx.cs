@@ -20,7 +20,7 @@ namespace WebApplication1
             var form_password = password.Text;
             SqlConnection connection = new SqlConnection("Data Source=LAPTOP-IPNJ48D\\SQLEXPRESS;Initial Catalog=bpo;Integrated Security=true");
             connection.Open();
-            SqlCommand command = new SqlCommand("select email,password,profile_type from login", connection);
+            SqlCommand command = new SqlCommand("select email,password,profile_type,full_name,profile from login", connection);
             SqlDataReader reader = command.ExecuteReader();
             int flag = 0;
             string st = "";
@@ -34,6 +34,8 @@ namespace WebApplication1
                     if (password == form_password)
                     {
                         Session["email"] = form_email;
+                        Session["full_name"] = reader["full_name"];
+                        Session["profile"] = reader["profile"];
                         if (Convert.ToString(reader["profile_type"]) == "admin")
                             Response.Redirect("admin_dashboard");
                         else

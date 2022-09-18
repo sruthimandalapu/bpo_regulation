@@ -64,7 +64,7 @@ a{
     <form id="form1" runat="server">
         <br><br /><br /><br /><br /><br /><br />
     <asp:Label ID="message" runat="server" />
-    <asp:TextBox style="margin-top:30px;" runat="server" ID="otp" class="textbox" placeholder="otp.." required/><br /><br />
+    <asp:TextBox style="margin-top:30px;" type="number" runat="server" ID="otp" class="textbox" placeholder="otp.." required/><br /><br />
     <asp:TextBox runat="server" type="password" ID="password" class="textbox" placeholder="Password.." required/><br /><br />
     <asp:TextBox runat="server" type="password" ID="confirm_password" class="textbox" placeholder="Confirm Password.." required/>
         <br><br>

@@ -26,6 +26,12 @@ namespace WebApplication1
             var form_profile= form_first_name[0]+ form_last_name[0];
             SqlConnection connection = new SqlConnection("Data Source=LAPTOP-IPNJ48D\\SQLEXPRESS;Initial Catalog=bpo;Integrated Security=true");
             connection.Open();
+            int form_id = 0;
+            SqlCommand c = new SqlCommand("select count(*) c from login", connection);
+            SqlDataReader r = c.ExecuteReader();
+            if (r.Read())
+                form_id = 1 + Convert.ToInt32(r["c"]);
+            r.Close();
             SqlCommand command = new SqlCommand("select email from login", connection);
             SqlDataReader reader = command.ExecuteReader();
             string st = "";
@@ -49,8 +55,9 @@ namespace WebApplication1
             {
                 Random rnd = new Random();
                 int otp= rnd.Next(10000,99999);
-                SqlCommand cmd = new SqlCommand("insert into login(full_name,email,profile,registered_date,otp,profile_type) values('"+
-                    form_full_name+"','"+
+                SqlCommand cmd = new SqlCommand("insert into login(id,full_name,email,profile,registered_date,otp,profile_type) values('"+
+                    form_id + "','" +
+                    form_full_name +"','"+
                     form_email + "','" +
                     form_profile + "','" +
                     form_registered_date + "','"+

@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace WebApplication1
 {
-    public partial class Contact : Page
+    public partial class admin_change_password : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
