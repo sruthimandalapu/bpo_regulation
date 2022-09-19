@@ -29,13 +29,14 @@
   font-family: Bahnschrift;
   font-family:Calibri;
   font-size: 17px;
+  cursor:pointer;
 }
 button{
   width: 16%;
   margin-left: 5px;
 }
 p,span{
-  font-family: Bahnschrift;
+  font-family:Calibri;
 }
 a{
   text-decoration: none;

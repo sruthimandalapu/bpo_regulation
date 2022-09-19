@@ -4,12 +4,12 @@
 
     <style>
         .drop{
-            margin-left:350px;
+            margin-left:480px;
             margin-top:30px;
         }
         .textbox{
   border: 1px solid rgba(0, 0, 0, 0.1);
-  width: 30%;
+  width: 35%;
   height: 10px;
   padding:20px;
   border-radius:40px;
@@ -30,6 +30,7 @@
   font-family: Bahnschrift;
   font-family: 'Josefin Sans', sans-serif; 
   font-size: 17px;
+  cursor:pointer;
 }
 button{
   width: 16%;

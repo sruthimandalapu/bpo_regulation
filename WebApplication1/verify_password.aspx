@@ -30,6 +30,7 @@
   font-family: Bahnschrift;
   font-family:Calibri;
   font-size: 17px;
+  cursor:pointer;
 }
 button{
   width: 16%;

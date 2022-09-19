@@ -30,35 +30,39 @@
   font-family: Bahnschrift;
   font-family: 'Josefin Sans', sans-serif; 
   font-size: 17px;
+  cursor:pointer;
 }
 button{
   width: 16%;
   margin-left: 5px;
 }
 .message{
-    margin-left:220px;
+    margin-left:330px;
     color:rgba(0,0,0,0.25);
     font-family: 'Josefin Sans', sans-serif; 
 }
 .name{
     color:rgba(0,0,0,0.35);
 }
+
 </style>
 
 
     <div class="drop">
     <!-- Assign Tasks -->
     <asp:Label class="message" ID="message" runat="server"/><br />
-    <span class="name" style="margin-right:35.5px;">Full Name</span><asp:TextBox style="margin-top:20px;margin-right:20px; " runat="server" ID="full_name" class="textbox" placeholder="Full Name"/>
-    <span class="name" style="margin-right:90px;">Email</span><asp:TextBox style="margin-right:20px;" runat="server" ID="email" class="textbox" type="email" placeholder="Email"/><br /><br />
-    <span class="name" style="margin-right:15px;">Date of Birth</span><asp:TextBox style="margin-right:20px;" runat="server" ID="date_of_birth" class="textbox" placeholder="Date of Birth"/>
-    <span class="name" style="margin-right:14px;">Contact Number</span><asp:TextBox style="margin-right:20px;" runat="server" ID="contact_number" class="textbox" type="number" placeholder="Contact Number"/><br /><br />
-    <span class="name" style="margin-right:58px;">Gender</span><asp:TextBox style="margin-right:20px;"  runat="server" ID="gender" class="textbox" placeholder="Gender"/>
-    <span class="name" style="margin-right:95px;">State</span><asp:TextBox style="margin-right:20px;" runat="server" ID="state" class="textbox" placeholder="State"/><br /><br />
-    <span class="name" style="margin-right:80px;">City</span><asp:TextBox style="margin-right:20px;"  runat="server" ID="city" class="textbox" placeholder="City"/>
-    <span class="name" style="margin-right:77px;">Pincode</span><asp:TextBox style="margin-right:20px;" runat="server" ID="pincode" class="textbox" placeholder="Pincode"/><br /><br />
+    <span class="name" style="margin-right:52.5px;">First Name</span><asp:TextBox style="margin-top:20px;margin-right:20px; " runat="server" ID="first_name" class="textbox" placeholder="First Name"/>
+    <span class="name" style="margin-right:35.5px;">Last Name</span><asp:TextBox style="margin-top:20px;margin-right:20px; " runat="server" ID="last_name" class="textbox" placeholder="Last Name"/><br /><br />
+    <span class="name" style="margin-right:92px;">Email</span><asp:TextBox style="margin-right:20px;" runat="server" ID="email" class="textbox" type="email" placeholder="Email" disabled/>
+    <span class="name" style="margin-right:20px;">Date of Birth</span><asp:TextBox style="margin-right:20px;" runat="server" ID="date_of_birth" onfocus="(this.type='date')" class="textbox" placeholder="Date of Birth"/><br /><br />
+    <span class="name" style="margin-right:14px;">Contact Number</span><asp:TextBox style="margin-right:20px;" runat="server" ID="contact_number" class="textbox" type="number" placeholder="Contact Number"/>
+    <span class="name" style="margin-right:60px;">Gender</span><asp:TextBox style="margin-right:20px;"  runat="server" ID="gender" class="textbox" placeholder="Gender"/><br /><br />
+    <span class="name" style="margin-right:98px;">State</span><asp:TextBox style="margin-right:20px;" runat="server" ID="state" class="textbox" placeholder="State"/>
+    <span class="name" style="margin-right:83px;">City</span><asp:TextBox style="margin-right:20px;"  runat="server" ID="city" class="textbox" placeholder="City"/><br /><br />
+    <span class="name" style="margin-right:93px;">Street</span><asp:TextBox style="margin-right:20px;"  runat="server" ID="street" class="textbox" placeholder="Street"/>
+    <span class="name" style="margin-right:55px;">Pincode</span><asp:TextBox style="margin-right:20px;" runat="server" ID="pincode" class="textbox" placeholder="Pincode"/><br /><br />
     <br />
-    <span><asp:Button runat="server" class="submit" Text="update" /></span><br /><br />
+    <span><asp:Button runat="server" class="submit" OnClick="edit_Click" Text="update" /></span><br /><br />
     </div>
 
 

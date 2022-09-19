@@ -24,13 +24,22 @@ namespace WebApplication1
         protected global::System.Web.UI.WebControls.Label message;
 
         /// <summary>
-        /// full_name control.
+        /// first_name control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox full_name;
+        protected global::System.Web.UI.WebControls.TextBox first_name;
+
+        /// <summary>
+        /// last_name control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox last_name;
 
         /// <summary>
         /// email control.
@@ -85,6 +94,15 @@ namespace WebApplication1
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox city;
+
+        /// <summary>
+        /// street control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox street;
 
         /// <summary>
         /// pincode control.

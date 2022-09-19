@@ -20,6 +20,7 @@ th, td {
   padding: 13px;
   text-align: center;
   border-bottom: 1px solid #DDD;
+  cursor:pointer;
 }
 th{
     font-family: 'Josefin Sans', sans-serif;

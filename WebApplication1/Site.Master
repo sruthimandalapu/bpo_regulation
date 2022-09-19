@@ -175,7 +175,7 @@ body{
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 1;
   border-radius: 3px;
-  /* font-family: 'Josefin Sans', sans-serif; */
+  font-family: 'Josefin Sans', sans-serif; 
   text-align: left;
 }
 .dropdown-content a {
@@ -205,6 +205,7 @@ i{
     margin-left:270px;
     width:100%;
     align-content:center;
+    font-family: 'Josefin Sans', sans-serif;
 }
 
 
@@ -213,7 +214,7 @@ i{
 
 /* Sidebar nav dropdown styles*/
 .nav-links{
-    font-family:Calibri;
+    font-family: 'Josefin Sans', sans-serif;
   height: 100%;
   /* padding: 30px 0 150px 0; */
   /* overflow: auto; */
@@ -326,7 +327,7 @@ i{
             <ul class="nav-links">
             <li>
                 <div class="iocn-link">
-                <a href="#"><i class="fas fa-thumbtack"></i><span class="link_name">Tasks</span></a><i class='bx bxs-chevron-down arrow' ></i>
+                <a href=""><i class="fas fa-thumbtack"></i><span class="link_name">Tasks</span></a><i class='bx bxs-chevron-down arrow' ></i>
                 </div>
                     <ul class="sub-menu">
                       <li ><a href="admin_assign_task">Assign a task</a></li>

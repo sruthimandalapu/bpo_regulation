@@ -23,7 +23,10 @@ namespace WebApplication1
             var form_email = email.Text;
             var form_registered_date= Convert.ToString(DateTime.Now.ToString("yyyy-MM-dd"));
             var form_full_name = form_first_name + " " + form_last_name;
-            var form_profile= form_first_name[0]+ form_last_name[0];
+            var first = Convert.ToString(form_first_name[0]).ToUpper();
+            var second = Convert.ToString(form_last_name[0]).ToUpper();
+            second.ToUpper();
+            var form_profile = first + second;
             SqlConnection connection = new SqlConnection("Data Source=LAPTOP-IPNJ48D\\SQLEXPRESS;Initial Catalog=bpo;Integrated Security=true");
             connection.Open();
             int form_id = 0;
@@ -55,8 +58,10 @@ namespace WebApplication1
             {
                 Random rnd = new Random();
                 int otp= rnd.Next(10000,99999);
-                SqlCommand cmd = new SqlCommand("insert into login(id,full_name,email,profile,registered_date,otp,profile_type) values('"+
+                SqlCommand cmd = new SqlCommand("insert into login(id,first_name,last_name,full_name,email,profile,registered_date,otp,profile_type) values('"+
                     form_id + "','" +
+                    form_first_name + "','" +
+                    form_last_name + "','" +
                     form_full_name +"','"+
                     form_email + "','" +
                     form_profile + "','" +
