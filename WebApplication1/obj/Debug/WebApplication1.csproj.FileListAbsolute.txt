@@ -146,6 +146,8 @@ E:\WebApplication1\WebApplication1\obj\Debug\WebApplication1.csproj.CoreCompileI
 E:\WebApplication1\WebApplication1\obj\Debug\WebApplication1.csproj.CopyComplete
 E:\WebApplication1\WebApplication1\obj\Debug\WebApplication1.dll
 E:\WebApplication1\WebApplication1\obj\Debug\WebApplication1.pdb
+D:\WebApplication1\WebApplication1\obj\Debug\WebApplication1.csproj.AssemblyReference.cache
+D:\WebApplication1\WebApplication1\obj\Debug\WebApplication1.csproj.CoreCompileInputs.cache
 D:\WebApplication1\WebApplication1\bin\WebApplication1.dll.config
 D:\WebApplication1\WebApplication1\bin\WebApplication1.dll
 D:\WebApplication1\WebApplication1\bin\WebApplication1.pdb
@@ -215,8 +217,6 @@ D:\WebApplication1\WebApplication1\bin\Newtonsoft.Json.xml
 D:\WebApplication1\WebApplication1\bin\Antlr3.Runtime.pdb
 D:\WebApplication1\WebApplication1\bin\Microsoft.AspNet.FriendlyUrls.xml
 D:\WebApplication1\WebApplication1\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-D:\WebApplication1\WebApplication1\obj\Debug\WebApplication1.csproj.AssemblyReference.cache
-D:\WebApplication1\WebApplication1\obj\Debug\WebApplication1.csproj.CoreCompileInputs.cache
 D:\WebApplication1\WebApplication1\obj\Debug\WebApplication1.csproj.CopyComplete
 D:\WebApplication1\WebApplication1\obj\Debug\WebApplication1.dll
 D:\WebApplication1\WebApplication1\obj\Debug\WebApplication1.pdb

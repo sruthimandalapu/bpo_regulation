@@ -51,6 +51,15 @@ namespace WebApplication1
         protected global::System.Web.UI.WebControls.PlaceHolder place_view_all;
 
         /// <summary>
+        /// list_view_all control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ListView list_view_all;
+
+        /// <summary>
         /// place_status_open control.
         /// </summary>
         /// <remarks>
@@ -60,6 +69,24 @@ namespace WebApplication1
         protected global::System.Web.UI.WebControls.PlaceHolder place_status_open;
 
         /// <summary>
+        /// edit1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton edit1;
+
+        /// <summary>
+        /// delete1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton delete1;
+
+        /// <summary>
         /// place_status_closed control.
         /// </summary>
         /// <remarks>
@@ -67,5 +94,23 @@ namespace WebApplication1
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.PlaceHolder place_status_closed;
+
+        /// <summary>
+        /// edit2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton edit2;
+
+        /// <summary>
+        /// delete2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton delete2;
     }
 }

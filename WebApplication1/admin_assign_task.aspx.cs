@@ -26,7 +26,6 @@ namespace WebApplication1
             var form_task_assigned_name = Session["full_name"];
             var form_task_assigned_email = Session["email"];
             var form_task_assigned_date = DateTime.Now.ToString("yyyy-MM-dd");
-            var form_id=0;
             SqlConnection connection = new SqlConnection("Data Source=LAPTOP-IPNJ48D\\SQLEXPRESS;Initial Catalog=bpo;Integrated Security=true");
             connection.Open();
             
@@ -35,14 +34,7 @@ namespace WebApplication1
             if (r.Read())
             {
                 r.Close();
-                SqlCommand command = new SqlCommand("select count(*) c from tasks", connection);
-                SqlDataReader reader = command.ExecuteReader();
-                if (reader.Read())
-                {
-                    form_id = Convert.ToInt32(reader["c"]);
-                }
-                reader.Close();
-                form_id = form_id + 1;
+                var form_id = Guid.NewGuid();
                 SqlCommand c = new SqlCommand("insert into tasks(id,project_name,emp_email_id,priority,task_assigned_to,task_title,task_status,task_description,task_assigned_name,task_assigned_email,task_assigned_date) values('" +
                     form_id + "','" +
                     form_project_name + "','" +

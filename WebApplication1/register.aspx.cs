@@ -29,12 +29,7 @@ namespace WebApplication1
             var form_profile = first + second;
             SqlConnection connection = new SqlConnection("Data Source=LAPTOP-IPNJ48D\\SQLEXPRESS;Initial Catalog=bpo;Integrated Security=true");
             connection.Open();
-            int form_id = 0;
-            SqlCommand c = new SqlCommand("select count(*) c from login", connection);
-            SqlDataReader r = c.ExecuteReader();
-            if (r.Read())
-                form_id = 1 + Convert.ToInt32(r["c"]);
-            r.Close();
+            var form_id =Guid.NewGuid();
             SqlCommand command = new SqlCommand("select email from login", connection);
             SqlDataReader reader = command.ExecuteReader();
             string st = "";

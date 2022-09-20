@@ -13,24 +13,26 @@ namespace WebApplication1
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            SqlConnection connection = new SqlConnection("Data Source=LAPTOP-IPNJ48D\\SQLEXPRESS;Initial Catalog=bpo;Integrated Security=true");
-            connection.Open();
-            SqlCommand c = new SqlCommand("select * from login where email='" + Session["email"]+"'", connection);
-            SqlDataReader r = c.ExecuteReader();
-            if (r.Read())
-            {
-                /* first_name.Text = Convert.ToString(r["first_name"]); */
-                last_name.Text = Convert.ToString(r["last_name"]);
-                email.Text = Convert.ToString(r["email"]);
-                date_of_birth.Text = Convert.ToString(r["date_of_birth"]);
-                contact_number.Text = Convert.ToString(r["contact_number"]);
-                gender.Text = Convert.ToString(r["gender"]);
-                state.Text= Convert.ToString(r["state"]);
-                city.Text = Convert.ToString(r["city"]);
-                street.Text = Convert.ToString(r["street"]);
-                pincode.Text = Convert.ToString(r["pincode"]);
+            if (!IsPostBack) {
+                SqlConnection connection = new SqlConnection("Data Source=LAPTOP-IPNJ48D\\SQLEXPRESS;Initial Catalog=bpo;Integrated Security=true");
+                connection.Open();
+                SqlCommand c = new SqlCommand("select * from login where email='" + Session["email"] + "'", connection);
+                SqlDataReader r = c.ExecuteReader();
+                if (r.Read())
+                {
+                    first_name.Text = Convert.ToString(r["first_name"]);
+                    last_name.Text = Convert.ToString(r["last_name"]);
+                    email.Text = Convert.ToString( Session["email"]);
+                    date_of_birth.Text = Convert.ToString(r["date_of_birth"]);
+                    contact_number.Text = Convert.ToString(r["contact_number"]);
+                    gender.Text = Convert.ToString(r["gender"]);
+                    state.Text = Convert.ToString(r["state"]);
+                    city.Text = Convert.ToString(r["city"]);
+                    street.Text = Convert.ToString(r["street"]);
+                    pincode.Text = Convert.ToString(r["pincode"]);
+                }
+                r.Close();
             }
-            r.Close();
         }
         protected void edit_Click(object sender, EventArgs e)
         {
