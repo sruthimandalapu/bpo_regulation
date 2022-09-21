@@ -62,13 +62,17 @@
     </style>
 
 
+    <asp:Button runat="server" ID="new_employees" OnClick="new_emp_Click" class="submit" Text="NEW EMPLOYEES" Style="margin-left: 600px;" />
+    <asp:Button runat="server" ID="all_employees" OnClick="all_emp_Click" class="submit" Text="ALL EMPLOYEES" />
+    
+
 
     <asp:ListView ID="ListView1" runat="server">
     <LayoutTemplate> 
             <table runat="server">
                 <tr>
-                    <th>EMP FIRST NAME</th>
-                    <th>EMP LAST NAME</th>
+                    <th>FIRST NAME</th>
+                    <th>LAST NAME</th>
                     <th>EMAIL ID</th>
                     <th>DATE OF BIRTH</th>
                     <th>CONTACT NUMBER</th>
@@ -94,9 +98,9 @@
             </td>
             <td><%#DataBinder.Eval(Container,"DataItem.gender") %>
             </td>
-            <td><asp:LinkButton runat="server" ID="reply" OnClick="edit_Click" CommandArgument='<%#DataBinder.Eval(Container,"DataItem.id")%>'><i style="color:rgba(0,0,0,0.4);" class="fas fa-pen"></i>
+            <td><asp:LinkButton runat="server" ID="reply" OnClick="edit_Click" CommandArgument='<%#DataBinder.Eval(Container,"DataItem.id")%>'><i style="color:rgba(0,0,0,0.4);padding-left:20px;" class="fas fa-pen"></i>
             </td></asp:LinkButton>
-            <td><asp:LinkButton runat="server" ID="delete" OnClick="delete_Click" CommandArgument='<%#DataBinder.Eval(Container,"DataItem.id")%>'><i style="color:rgba(0,0,0,0.4);" class="fas fa-trash"></i>
+            <td><asp:LinkButton runat="server" ID="delete" OnClick="delete_Click" CommandArgument='<%#DataBinder.Eval(Container,"DataItem.id")%>'><i style="color:rgba(0,0,0,0.4);padding-left:20px;" class="fas fa-trash"></i>
             </td></asp:LinkButton>
         </tr>
     </ItemTemplate>

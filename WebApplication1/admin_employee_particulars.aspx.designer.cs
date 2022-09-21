@@ -15,6 +15,24 @@ namespace WebApplication1
     {
 
         /// <summary>
+        /// new_employees control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button new_employees;
+
+        /// <summary>
+        /// all_employees control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button all_employees;
+
+        /// <summary>
         /// ListView1 control.
         /// </summary>
         /// <remarks>
