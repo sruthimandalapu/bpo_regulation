@@ -23,7 +23,7 @@ namespace WebApplication1
             connection.Open();
             SqlCommand c = new SqlCommand("select id,task_title,task_status,task_assigned_to,emp_email_id from tasks where task_assigned_email='" + Session["email"] + "'", connection);
             SqlDataReader r = c.ExecuteReader();
-            list_view_all.Sorce = 
+            //list_view_all.Sorce = "";
 
         }
         protected void view_all_Click(object sender, EventArgs e)

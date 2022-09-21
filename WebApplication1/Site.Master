@@ -43,7 +43,7 @@ body{
 .wrapper1 .sidebar1{
   width: 270px;
   height: 100%;
-  background: #002B5B;
+  background: #002B5B; 
   padding: 30px 0px;
   position: fixed;
 }
@@ -180,7 +180,10 @@ body{
 }
 .dropdown-content a {
   color: white;
-  padding: 12px 16px;
+  padding-top:12px;
+  padding-bottom:12px;
+  padding-left:16px;
+  font-size:16px;
   text-decoration: none;
   display: block;
   border-radius: 3px;
@@ -336,20 +339,9 @@ i{
                 
             </li>
             </ul>
-            <li><a href="admin_new_emp"><i class="fas fa-folder-open"></i>New Emp Recorded (
-                <%
-                 SqlCommand c = new SqlCommand("select count(*) c from login where registered_date BETWEEN GETDATE()-7 AND GETDATE() AND profile_type='employee'", connection);  
-                  SqlDataReader r = c.ExecuteReader();
-                  if (r.Read())
-                  { %>
-                <%= Convert.ToString(r["c"]) %>
-                  <% r.Close();
-                      }
-                %>
-                
-                )</a></li>
             <li><a href="admin_employee_particulars"><i class="fas fa-users"></i>Employee Particulars</a></li>
-            <li><a href="admin_feedback"><i class="fas fa-address-book"></i>Feedback</a></li>
+            <li><a href="admin_issues_raised"><i class="fas fa-comment-alt"></i>Issues Raised</a></li>
+            <li><a href="admin_documentation"><i class="fas fa-book"></i>Documentation</a></li>
         </ul> 
 
         </div>
