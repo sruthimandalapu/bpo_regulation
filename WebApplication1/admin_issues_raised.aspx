@@ -91,7 +91,7 @@
             <td><%#DataBinder.Eval(Container,"DataItem.status") %>
             </td>
             <td><asp:LinkButton runat="server" ID="reply" OnClick="reply_Click" CommandArgument='<%#DataBinder.Eval(Container,"DataItem.id")%>'><i style="color:rgba(0,0,0,0.4);" class="fas fa-reply"></i>
-            </td></asp:LinkButton>
+            </asp:LinkButton></td>
         </tr>
     </ItemTemplate>
     </asp:ListView>

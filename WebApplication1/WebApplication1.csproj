@@ -111,6 +111,7 @@
     <Content Include="admin_documentation.aspx" />
     <Content Include="admin_edit_profile.aspx" />
     <Content Include="admin_employee_particulars.aspx" />
+    <Content Include="admin_emp_edit.aspx" />
     <Content Include="admin_issues_raised.aspx" />
     <Content Include="admin_viewall_tasks.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
@@ -213,6 +214,13 @@
     </Compile>
     <Compile Include="admin_employee_particulars.aspx.designer.cs">
       <DependentUpon>admin_employee_particulars.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin_emp_edit.aspx.cs">
+      <DependentUpon>admin_emp_edit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin_emp_edit.aspx.designer.cs">
+      <DependentUpon>admin_emp_edit.aspx</DependentUpon>
     </Compile>
     <Compile Include="admin_issues_raised.aspx.cs">
       <DependentUpon>admin_issues_raised.aspx</DependentUpon>
