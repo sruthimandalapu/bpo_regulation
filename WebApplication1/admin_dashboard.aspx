@@ -115,7 +115,7 @@
                         <div class="icon">
                             <i class="fa fa-users" aria-hidden="true"></i>
                         </div> -->
-                        <a href="admin_new_emp" class="card-box-footer">View More <i class="fa fa-arrow-circle-right"></i></a>
+                        <a href="admin_employee_particulars" class="card-box-footer">View More <i class="fa fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
 
@@ -124,7 +124,7 @@
                         <div class="inner">
                             <h3> 
                             <%
-               SqlCommand cmd = new SqlCommand("select count(*) c from tasks where task_closed_date BETWEEN GETDATE()-7 AND GETDATE() AND task_status='Closed' AND task_assigned_email='" + Session["email"]+"'", connection);  
+               SqlCommand cmd = new SqlCommand("select count(*) c from tasks where task_closed_date BETWEEN GETDATE()-7 AND GETDATE() AND task_status='Closed' AND task_assigned_by_email='" + Session["email"]+"'", connection);  
                SqlDataReader rea = cmd.ExecuteReader();
                if (rea.Read())
                   { %>
@@ -141,6 +141,7 @@
                             <i class="fa fa-users"></i>
                         </div> -->
                         <a href="admin_status_close" class="card-box-footer">View More <i class="fa fa-arrow-circle-right"></i></a>
+                        <% connection.Close(); %>
                     </div>
                 </div>
             </div>

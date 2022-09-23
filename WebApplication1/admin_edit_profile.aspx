@@ -53,7 +53,13 @@ button{
     <asp:Label class="message" ID="message" runat="server"/><br />
     <span class="name" style="margin-right:52.5px;">First Name</span><asp:TextBox style="margin-top:20px;margin-right:20px; " runat="server" ID="first_name" class="textbox" placeholder="First Name"/>
     <span class="name" style="margin-right:35.5px;">Last Name</span><asp:TextBox style="margin-top:20px;margin-right:20px; " runat="server" ID="last_name" class="textbox" placeholder="Last Name"/><br /><br />
-    <span class="name" style="margin-right:92px;">Email</span><asp:TextBox style="margin-right:20px;" runat="server" ID="email" class="textbox" type="email" placeholder="Email" disabled/>
+    <span class="name" style="margin-right:92px;">Email</span><asp:TextBox style="margin-right:20px;width: 30%;border: 1px solid rgba(0, 0, 0, 0.1);
+  height: 10px;
+  padding:20px;
+  border-radius:40px;
+  font-family: 'Josefin Sans', sans-serif; 
+  font-size:16px;
+  color:rgba(0,0,0,0.45);" runat="server" ID="email" class="textbox" type="email" placeholder="Email" />
     <span class="name" style="margin-right:20px;">Date of Birth</span><asp:TextBox style="margin-right:20px;" runat="server" ID="date_of_birth" onfocus="(this.type='date')" class="textbox" placeholder="Date of Birth"/><br /><br />
     <span class="name" style="margin-right:14px;">Contact Number</span><asp:TextBox style="margin-right:20px;" runat="server" ID="contact_number" class="textbox" type="number" placeholder="Contact Number"/>
     <span class="name" style="margin-right:60px;">Gender</span><asp:TextBox style="margin-right:20px;"  runat="server" ID="gender" class="textbox" placeholder="Gender"/><br /><br />

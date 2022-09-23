@@ -111,7 +111,6 @@
     <Content Include="admin_documentation.aspx" />
     <Content Include="admin_edit_profile.aspx" />
     <Content Include="admin_employee_particulars.aspx" />
-    <Content Include="admin_emp_edit.aspx" />
     <Content Include="admin_issues_raised.aspx" />
     <Content Include="admin_viewall_tasks.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
@@ -135,7 +134,6 @@
     <Content Include="images\bpo.png" />
     <Content Include="login.aspx" />
     <Content Include="register.aspx" />
-    <Content Include="admin_reply_issue.aspx" />
     <Content Include="reset.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -215,13 +213,6 @@
     <Compile Include="admin_employee_particulars.aspx.designer.cs">
       <DependentUpon>admin_employee_particulars.aspx</DependentUpon>
     </Compile>
-    <Compile Include="admin_emp_edit.aspx.cs">
-      <DependentUpon>admin_emp_edit.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="admin_emp_edit.aspx.designer.cs">
-      <DependentUpon>admin_emp_edit.aspx</DependentUpon>
-    </Compile>
     <Compile Include="admin_issues_raised.aspx.cs">
       <DependentUpon>admin_issues_raised.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -255,13 +246,6 @@
     </Compile>
     <Compile Include="register.aspx.designer.cs">
       <DependentUpon>register.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="admin_reply_issue.aspx.cs">
-      <DependentUpon>admin_reply_issue.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="admin_reply_issue.aspx.designer.cs">
-      <DependentUpon>admin_reply_issue.aspx</DependentUpon>
     </Compile>
     <Compile Include="reset.aspx.cs">
       <DependentUpon>reset.aspx</DependentUpon>

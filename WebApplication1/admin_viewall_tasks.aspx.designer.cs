@@ -15,6 +15,15 @@ namespace WebApplication1
     {
 
         /// <summary>
+        /// tasks control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.PlaceHolder tasks;
+
+        /// <summary>
         /// view_all control.
         /// </summary>
         /// <remarks>
@@ -42,75 +51,93 @@ namespace WebApplication1
         protected global::System.Web.UI.WebControls.Button status_close;
 
         /// <summary>
-        /// place_view_all control.
+        /// ListView1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.PlaceHolder place_view_all;
+        protected global::System.Web.UI.WebControls.ListView ListView1;
 
         /// <summary>
-        /// list_view_all control.
+        /// edit_task control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListView list_view_all;
+        protected global::System.Web.UI.WebControls.PlaceHolder edit_task;
 
         /// <summary>
-        /// place_status_open control.
+        /// message control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.PlaceHolder place_status_open;
+        protected global::System.Web.UI.WebControls.Label message;
 
         /// <summary>
-        /// edit1 control.
+        /// project_name control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton edit1;
+        protected global::System.Web.UI.WebControls.TextBox project_name;
 
         /// <summary>
-        /// delete1 control.
+        /// priority control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton delete1;
+        protected global::System.Web.UI.WebControls.TextBox priority;
 
         /// <summary>
-        /// place_status_closed control.
+        /// task_assigned_to control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.PlaceHolder place_status_closed;
+        protected global::System.Web.UI.WebControls.TextBox task_assigned_to;
 
         /// <summary>
-        /// edit2 control.
+        /// employee_mail_id control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton edit2;
+        protected global::System.Web.UI.WebControls.TextBox employee_mail_id;
 
         /// <summary>
-        /// delete2 control.
+        /// task_title control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton delete2;
+        protected global::System.Web.UI.WebControls.TextBox task_title;
+
+        /// <summary>
+        /// task_status control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox task_status;
+
+        /// <summary>
+        /// task_description control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTextArea task_description;
     }
 }

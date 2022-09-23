@@ -14,61 +14,180 @@ namespace WebApplication1
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
-            place_status_open.Visible = false;
-            place_status_closed.Visible = false;
-            place_view_all.Visible = true;
-            view_all.BackColor = System.Drawing.ColorTranslator.FromHtml("#f3f5f9");
-            SqlConnection connection = new SqlConnection("Data Source=LAPTOP-IPNJ48D\\SQLEXPRESS;Initial Catalog=bpo;Integrated Security=true");
-            connection.Open();
-            SqlCommand c = new SqlCommand("select id,task_title,task_status,task_assigned_to,emp_email_id from tasks where task_assigned_email='" + Session["email"] + "'", connection);
-            SqlDataReader r = c.ExecuteReader();
-            //list_view_all.Sorce = "";
-
+            try
+            {
+                if (Session["task_status"] == "open")
+                {
+                    SqlConnection connection = new SqlConnection("Data Source=LAPTOP-IPNJ48D\\SQLEXPRESS;Initial Catalog=bpo;Integrated Security=true");
+                    connection.Open();
+                    SqlCommand cmd = new SqlCommand("select * from tasks where task_status='Open' and task_assigned_by_email='" + Session["email"] + "'", connection);
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    ListView1.DataSource = reader;
+                    ListView1.DataBind();
+                    view_all.BackColor = System.Drawing.ColorTranslator.FromHtml("#fff");
+                    status_open.BackColor = System.Drawing.ColorTranslator.FromHtml("#f3f5f9");
+                    status_close.BackColor = System.Drawing.ColorTranslator.FromHtml("#fff");
+                    tasks.Visible = true;
+                    edit_task.Visible = false;
+                    connection.Close();
+                }
+                else if (Session["task_status"] == "close")
+                {
+                    Session["task_status"] = "close";
+                    SqlConnection connection = new SqlConnection("Data Source=LAPTOP-IPNJ48D\\SQLEXPRESS;Initial Catalog=bpo;Integrated Security=true");
+                    connection.Open();
+                    SqlCommand cmd = new SqlCommand("select * from tasks where task_status='Closed' and task_assigned_by_email='" + Session["email"] + "'", connection);
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    ListView1.DataSource = reader;
+                    ListView1.DataBind();
+                    view_all.BackColor = System.Drawing.ColorTranslator.FromHtml("#fff");
+                    status_open.BackColor = System.Drawing.ColorTranslator.FromHtml("#fff");
+                    status_close.BackColor = System.Drawing.ColorTranslator.FromHtml("#f3f5f9");
+                    tasks.Visible = true;
+                    edit_task.Visible = false;
+                    connection.Close();
+                }
+                else
+                {
+                    SqlConnection connection = new SqlConnection("Data Source=LAPTOP-IPNJ48D\\SQLEXPRESS;Initial Catalog=bpo;Integrated Security=true");
+                    connection.Open();
+                    SqlCommand cmd = new SqlCommand("select * from tasks where task_assigned_by_email='" + Session["email"] + "'", connection);
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    ListView1.DataSource = reader;
+                    ListView1.DataBind();
+                    view_all.BackColor = System.Drawing.ColorTranslator.FromHtml("#f3f5f9");
+                    status_open.BackColor = System.Drawing.ColorTranslator.FromHtml("#fff");
+                    status_close.BackColor = System.Drawing.ColorTranslator.FromHtml("#fff");
+                    tasks.Visible = true;
+                    edit_task.Visible = false;
+                    connection.Close();
+                }
+            }
+            catch(Exception exp)
+            {
+                SqlConnection connection = new SqlConnection("Data Source=LAPTOP-IPNJ48D\\SQLEXPRESS;Initial Catalog=bpo;Integrated Security=true");
+                connection.Open();
+                SqlCommand cmd = new SqlCommand("select * from tasks where task_assigned_by_email='" + Session["email"] + "'", connection);
+                SqlDataReader reader = cmd.ExecuteReader();
+                ListView1.DataSource = reader;
+                ListView1.DataBind();
+                view_all.BackColor = System.Drawing.ColorTranslator.FromHtml("#f3f5f9");
+                status_open.BackColor = System.Drawing.ColorTranslator.FromHtml("#fff");
+                status_close.BackColor = System.Drawing.ColorTranslator.FromHtml("#fff");
+                tasks.Visible = true;
+                edit_task.Visible = false;
+                connection.Close();
+            }
         }
         protected void view_all_Click(object sender, EventArgs e)
         {
-            place_status_open.Visible = false;
-            place_status_closed.Visible = false;
-            place_view_all.Visible = true;
+            Session["task_status"] = "viewall";
+            SqlConnection connection = new SqlConnection("Data Source=LAPTOP-IPNJ48D\\SQLEXPRESS;Initial Catalog=bpo;Integrated Security=true");
+            connection.Open();
+            SqlCommand cmd = new SqlCommand("select * from tasks where task_assigned_by_email='" + Session["email"] + "'", connection);
+            SqlDataReader reader = cmd.ExecuteReader();
+            ListView1.DataSource = reader;
+            ListView1.DataBind();
             view_all.BackColor = System.Drawing.ColorTranslator.FromHtml("#f3f5f9");
             status_open.BackColor = System.Drawing.ColorTranslator.FromHtml("#fff");
             status_close.BackColor = System.Drawing.ColorTranslator.FromHtml("#fff");
+            tasks.Visible = true;
+            edit_task.Visible = false;
+            connection.Close();
         }
         protected void status_open_Click(object sender, EventArgs e)
         {
-            place_status_open.Visible = true;
-            place_status_closed.Visible = false;
-            place_view_all.Visible = false;
+            Session["task_status"] = "open";
+            SqlConnection connection = new SqlConnection("Data Source=LAPTOP-IPNJ48D\\SQLEXPRESS;Initial Catalog=bpo;Integrated Security=true");
+            connection.Open();
+            SqlCommand cmd = new SqlCommand("select * from tasks where task_status='Open' and task_assigned_by_email='" + Session["email"] + "'", connection);
+            SqlDataReader reader = cmd.ExecuteReader();
+            ListView1.DataSource = reader;
+            ListView1.DataBind();
             view_all.BackColor = System.Drawing.ColorTranslator.FromHtml("#fff");
             status_open.BackColor = System.Drawing.ColorTranslator.FromHtml("#f3f5f9");
             status_close.BackColor = System.Drawing.ColorTranslator.FromHtml("#fff");
+            tasks.Visible = true;
+            edit_task.Visible = false;
+            connection.Close();
         }
         protected void status_close_Click(object sender, EventArgs e)
         {
-            place_status_open.Visible = false;
-            place_status_closed.Visible = true;
-            place_view_all.Visible = false;
+            Session["task_status"] = "close";
+            SqlConnection connection = new SqlConnection("Data Source=LAPTOP-IPNJ48D\\SQLEXPRESS;Initial Catalog=bpo;Integrated Security=true");
+            connection.Open();
+            SqlCommand cmd = new SqlCommand("select * from tasks where task_status='Closed' and task_assigned_by_email='" + Session["email"] + "'", connection);
+            SqlDataReader reader = cmd.ExecuteReader();
+            ListView1.DataSource = reader;
+            ListView1.DataBind();
             view_all.BackColor = System.Drawing.ColorTranslator.FromHtml("#fff");
             status_open.BackColor = System.Drawing.ColorTranslator.FromHtml("#fff");
             status_close.BackColor = System.Drawing.ColorTranslator.FromHtml("#f3f5f9");
+            tasks.Visible = true;
+            edit_task.Visible = false;
+            connection.Close();
         }
         protected void edit_Click(object sender, EventArgs e)
         {
-
-        }
-            protected void delete_Click(object sender, EventArgs e)
-        {
+            tasks.Visible = false;
+            edit_task.Visible = true;
             LinkButton btn = (LinkButton)sender;
-            var id=btn.CommandArgument.ToString();
-            Debug.WriteLine(id);
-            /*
+            Guid id = new Guid(btn.CommandArgument);
+            Session["task_id"] = id;
             SqlConnection connection = new SqlConnection("Data Source=LAPTOP-IPNJ48D\\SQLEXPRESS;Initial Catalog=bpo;Integrated Security=true");
             connection.Open();
-            SqlCommand cmd = new SqlCommand("delete from tasks where id='"+id+"'", connection);
+            SqlCommand cmd = new SqlCommand("select * from tasks where id='" + id+ "'", connection);
+            SqlDataReader reader = cmd.ExecuteReader();
+            if (reader.Read())
+            {
+                project_name.Text = reader["project_name"].ToString();
+                priority.Text = reader["priority"].ToString();
+                task_assigned_to.Text = reader["task_assigned_to_name"].ToString();
+                employee_mail_id.Text = reader["task_assigned_to_email"].ToString();
+                task_title.Text = reader["task_title"].ToString();
+                task_status.Text = reader["task_status"].ToString();
+                task_description.InnerText = reader["task_description"].ToString();
+            }
+            connection.Close();
+        }
+        protected void task_Click(object sender, EventArgs e)
+        {
+            tasks.Visible = false;
+            edit_task.Visible = true;
+            var form_project_name = project_name.Text;
+            var form_priority = priority.Text;
+            var form_task_assigned_to = task_assigned_to.Text;
+            var form_employee_mail_id = employee_mail_id.Text;
+            var form_task_title = task_title.Text;
+            var form_task_status = task_status.Text;
+            var form_task_description = task_description.InnerText;
+            SqlConnection connection = new SqlConnection("Data Source=LAPTOP-IPNJ48D\\SQLEXPRESS;Initial Catalog=bpo;Integrated Security=true");
+            connection.Open();
+            SqlCommand cmd = new SqlCommand("update tasks set project_name='"+form_project_name+"', "+
+                "priority='" + form_priority+ "', "+
+                "task_title='"+form_task_title+"', "+
+                "task_status='"+form_task_status+"', "+
+                "task_description='"+form_task_description+"', "+
+                "task_assigned_to_name='"+form_task_assigned_to+"', "+
+                "task_assigned_to_email='"+ form_employee_mail_id+"' "+
+                "where id='" + Session["task_id"]+"'"
+                , connection);
             cmd.ExecuteNonQuery();
             connection.Close();
-            */
+            message.Text = "Updated Successfully!";
+        }
+        protected void delete_Click(object sender, EventArgs e)
+        {
+            tasks.Visible = true;
+            edit_task.Visible = false;
+            LinkButton btn = (LinkButton)sender;
+            Guid id = new Guid(btn.CommandArgument);
+            SqlConnection connection = new SqlConnection("Data Source=LAPTOP-IPNJ48D\\SQLEXPRESS;Initial Catalog=bpo;Integrated Security=true");
+            connection.Open();
+            SqlCommand cmd = new SqlCommand("delete from tasks where id='" + id + "'", connection);
+            cmd.ExecuteNonQuery();
+            connection.Close();
+            Response.Redirect("admin_viewall_tasks");
         }
     }
 }

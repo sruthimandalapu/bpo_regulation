@@ -56,9 +56,6 @@
             cursor: pointer;
         }
 
-            .submit:hover {
-                background-color: #f3f5f9;
-            }
 
 
 

@@ -55,26 +55,70 @@
             font-family: 'Josefin Sans', sans-serif;
             letter-spacing: 0;
             cursor: pointer;
+            margin-right:10px;
         }
 
             .submit:hover {
                 background-color: #f3f5f9;
             }
+
+
+            .submit1{
+    margin-left:330px;
+  width: 26%;
+  border-radius:40px;
+  height: 40px;
+  padding-top: 8px;
+  padding-bottom: 10px;
+  color: white;
+  background-color: rgb(0, 0, 128);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  font-family: Bahnschrift;
+  font-family: 'Josefin Sans', sans-serif; 
+  font-size: 17px;
+  cursor:pointer;
+}
+
+    .drop{
+            margin-left:330px;
+            margin-top:10px;
+        }
+
+        .textbox{
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  width: 30%;
+  height: 10px;
+  padding:20px;
+  border-radius:40px;
+  font-family: 'Josefin Sans', sans-serif; 
+  font-size:16px;
+  color:rgba(0,0,0,0.45);
+}
+/*
+button{
+  width: 16%;
+  margin-left: 5px;
+} */
+.message{
+    margin-left:380px;
+    color:rgba(0,0,0,0.25);
+    font-family: 'Josefin Sans', sans-serif; 
+}
+.name{
+    color:rgba(0,0,0,0.35);
+}
     </style>
 
-    <asp:Button Style="margin-left: 500px;" runat="server" ID="view_all" OnClick="view_all_Click" class="submit" Text="VIEW ALL TASKS" />
-    <asp:Button runat="server" ID="status_open" OnClick="status_open_Click" class="submit" Text="STATUS OPEN" />
-    <asp:Button runat="server" ID="status_close" OnClick="status_close_Click" class="submit" Text="STATUS CLOSE" />
+    <asp:PlaceHolder runat="server" ID="tasks">
+
+        <asp:Button Style="margin-left: 500px;" runat="server" ID="view_all" OnClick="view_all_Click" class="submit" Text="VIEW ALL TASKS" />
+        <asp:Button runat="server" ID="status_open" OnClick="status_open_Click" class="submit" Text="STATUS OPEN" />
+        <asp:Button runat="server" ID="status_close" OnClick="status_close_Click" class="submit" Text="STATUS CLOSE" />
 
 
-
-
-
-
-    <asp:PlaceHolder runat="server" ID="place_view_all">
-        <asp:ListView runat="server" ID="list_view_all">
-            <LayoutTemplate>
-                <table id="container" runat="server">
+        <asp:ListView ID="ListView1" runat="server">
+        <LayoutTemplate> 
+                <table runat="server">
                     <tr>
                         <th>TASK TITLE</th>
                         <th>TASK STATUS</th>
@@ -83,121 +127,48 @@
                         <th>EDIT</th>
                         <th>DELETE</th>
                     </tr>
-
-                    <%
-        /*
-        SqlConnection connection = new SqlConnection("Data Source=LAPTOP-IPNJ48D\\SQLEXPRESS;Initial Catalog=bpo;Integrated Security=true");
-        connection.Open();
-        SqlCommand c = new SqlCommand("select id,task_title,task_status,task_assigned_to,emp_email_id from tasks where task_assigned_email='" + Session["email"] +"'", connection);
-        SqlDataReader r = c.ExecuteReader();
-        while (r.Read())
-        { */
-                    %>
-
-
-
                     <tr id="itemPlaceHolder" runat="server">
                     </tr>
-
-                    <% /*
-          }r.Close();  */ %>
                 </table>
-            </LayoutTemplate>
-            <ItemTemplate>
-                <tr>
-                    <td><%#Eval["DataItem.task_title"] %></td>
-                    <td><%#Eval["DataItem.task_status"] %></td>
-                    <td><%#Eval["DataItem.task_assigned_to"] %></td>
-                    <td><%#Eval["DataItem.emp_email_id"] %></td>
-                    <td>
-                        <asp:LinkButton runat="server" ID="edit" CommandArgument='<%# Eval["DataItem.id"] %>' OnClick="edit_Click" Style="padding-left: 20px; color: rgba(0,0,0,0.4);" class="fas fa-pen"></asp:LinkButton></td>
-                    <td>
-                        <asp:LinkButton runat="server" ID="delete" CommandArgument='<%# Eval["DataItem.id"] %>' OnClick="delete_Click" Style="padding-left: 20px; color: rgba(0,0,0,0.4);" class="fas fa-trash"></asp:LinkButton></td>
-                </tr>
-            </ItemTemplate>
+        </LayoutTemplate>
+        <ItemTemplate>
+            <tr>
+                <td><%#DataBinder.Eval(Container,"DataItem.task_title") %>           
+                </td>
+                <td><%#DataBinder.Eval(Container,"DataItem.task_status") %>   
+                </td>
+                <td><%#DataBinder.Eval(Container,"DataItem.task_assigned_to_name") %>
+                </td>
+                <td><%#DataBinder.Eval(Container,"DataItem.task_assigned_to_email")    %>           
+                </td>
+                <td><asp:LinkButton runat="server" ID="edit" OnClick="edit_Click" CommandArgument='<%#DataBinder.Eval(Container,"DataItem.id")%>'><i style="color:rgba(0,0,0,0.4);padding-left:20px;" class="fas fa-edit"></i>
+                </asp:LinkButton></td>
+                <td><asp:LinkButton runat="server" ID="delete" OnClick="delete_Click" CommandArgument='<%#DataBinder.Eval(Container,"DataItem.id")%>'><i style="color:rgba(0,0,0,0.4);padding-left:20px;" class="fas fa-trash"></i>
+                </asp:LinkButton></td>
+            </tr>
+        </ItemTemplate>
         </asp:ListView>
     </asp:PlaceHolder>
 
 
 
 
-
-
-    <asp:PlaceHolder runat="server" ID="place_status_open">
-        <table>
-            <tr>
-                <th>TASK TITLE</th>
-                <th>TASK STATUS</th>
-                <th>TASK ASSIGNED TO</th>
-                <th>EMPLOYEE EMAIL ID</th>
-                <th>EDIT</th>
-                <th>DELETE</th>
-            </tr>
-            <%
-        SqlConnection connection = new SqlConnection("Data Source=LAPTOP-IPNJ48D\\SQLEXPRESS;Initial Catalog=bpo;Integrated Security=true");
-        connection.Open();
-        SqlCommand cmd = new SqlCommand("select task_title,task_status,task_assigned_to,emp_email_id from tasks where task_assigned_email='" + Session["email"] +"' and task_status='Open'", connection);
-        SqlDataReader rea = cmd.ExecuteReader();
-        while (rea.Read())
-        {
-            %>
-            <tr>
-                <td><%=rea["task_title"] %></td>
-                <td><%=rea["task_status"] %></td>
-                <td><%=rea["task_assigned_to"] %></td>
-                <td><%=rea["emp_email_id"] %></td>
-                <td>
-                    <asp:LinkButton runat="server" ID="edit1" CommandArgument='<%= rea["id"] %>' OnClick="edit_Click" Style="padding-left: 20px; color: rgba(0,0,0,0.4);" class="fas fa-pen"></asp:LinkButton></td>
-                <td>
-                    <asp:LinkButton runat="server" ID="delete1" CommandArgument='<%= rea["id"] %>' OnClick="delete_Click" Style="padding-left: 20px; color: rgba(0,0,0,0.4);" class="fas fa-trash"></asp:LinkButton></td>
-
-
-                <% 
-          }  rea.Close();%>
-            </tr>
-
-        </table>
+    <asp:PlaceHolder runat="server" ID="edit_task">
+    <div class="drop">
+    <br />
+    <asp:Label class="message" ID="message" runat="server" /><br />
+    <span class="name" style="margin-right:52.5px;">Project Name</span><asp:TextBox style="margin-top:20px;margin-right:20px;" runat="server" ID="project_name" class="textbox" type="text" placeholder="Null" required/>
+    <span class="name" style="margin-right:95.5px;">Priority</span><asp:TextBox style="margin-top:20px;margin-right:20px; " runat="server" ID="priority" class="textbox" type="text" placeholder="Null" required/><br /><br />
+    <span class="name" style="margin-right:30px;">Task Assigned To</span><asp:TextBox style="margin-right:20px;" runat="server" ID="task_assigned_to" class="textbox" type="text" placeholder="Null" required/>
+    <span class="name" style="margin-right:20px;">Employee Mail Id</span><asp:TextBox style="margin-right:20px;" runat="server" ID="employee_mail_id" class="textbox" type="email" placeholder="Null" required/><br /><br />
+    <span class="name" style="margin-right:85px;">Task Title</span><asp:TextBox style="margin-right:20px;" runat="server" ID="task_title" class="textbox" type="text" placeholder="Null" required/>
+    <span class="name" style="margin-right:66px;">Task Status</span><asp:TextBox style="margin-right:20px;"  runat="server" ID="task_status" class="textbox" type="text" placeholder="Null" required/><br /><br />
+    <span class="name" style="margin-right:30px;vertical-align: top;">Task Description</span><textarea type="text" style="resize:none;height:100px;width:740px;border-radius:30px;" runat="server" ID="task_description" class="textbox" placeholder="Task Description" required></textarea>
+    <br /><br />
+    <span><asp:Button runat="server" class="submit1" Text="submit" OnClick="task_Click"/></span><br /><br />
+    <a style="margin-left:370px;color:rgba(0,0,0,0.3);margin-top:30px;font-size:16px;" href="admin_viewall_tasks">Get back to employees!</a>
+    </div>
     </asp:PlaceHolder>
 
-
-
-
-
-
-
-
-    <asp:PlaceHolder runat="server" ID="place_status_closed">
-        <table>
-            <tr>
-                <th>TASK TITLE</th>
-                <th>TASK STATUS</th>
-                <th>TASK ASSIGNED TO</th>
-                <th>EMPLOYEE EMAIL ID</th>
-                <th>EDIT</th>
-                <th>DELETE</th>
-            </tr>
-            <%
-        SqlConnection connection = new SqlConnection("Data Source=LAPTOP-IPNJ48D\\SQLEXPRESS;Initial Catalog=bpo;Integrated Security=true");
-        connection.Open();
-        SqlCommand command = new SqlCommand("select task_title,task_status,task_assigned_to,emp_email_id from tasks where task_assigned_email='" + Session["email"] +"' and task_status='Closed'", connection);
-        SqlDataReader reader = command.ExecuteReader();
-        while (reader.Read())
-        {
-            %>
-            <tr>
-                <td><%=reader["task_title"] %></td>
-                <td><%=reader["task_status"] %></td>
-                <td><%=reader["task_assigned_to"] %></td>
-                <td><%=reader["emp_email_id"] %></td>
-                <td>
-                    <asp:LinkButton runat="server" ID="edit2" CommandArgument='<%= reader["id"] %>' OnClick="edit_Click" Style="padding-left: 20px; color: rgba(0,0,0,0.4);" class="fas fa-pen"></asp:LinkButton></td>
-                <td>
-                    <asp:LinkButton runat="server" ID="delete2" CommandArgument='<%= reader["id"] %>' OnClick="delete_Click" Style="padding-left: 20px; color: rgba(0,0,0,0.4);" class="fas fa-trash"></asp:LinkButton></td>
-                <%}  %>
-            </tr>
-
-        </table>
-    </asp:PlaceHolder>
-
-
+    
 </asp:Content>
