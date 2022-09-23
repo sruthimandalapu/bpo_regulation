@@ -149,16 +149,16 @@ button{
 
     <asp:PlaceHolder runat="server" ID="personal_details" >
     <div class="drop">
-    <span class="name" style="margin-right:52.5px;">First Name</span><asp:TextBox style="margin-top:20px;margin-right:20px; " runat="server" ID="first_name" class="textbox" placeholder="First Name" disabled/>
-    <span class="name" style="margin-right:35.5px;">Last Name</span><asp:TextBox style="margin-top:20px;margin-right:20px; " runat="server" ID="last_name" class="textbox" placeholder="Last Name" disabled/><br /><br />
-    <span class="name" style="margin-right:92px;">Email</span><asp:TextBox style="margin-right:20px;" runat="server" ID="email1" class="textbox" type="email" placeholder="Email" disabled/>
-    <span class="name" style="margin-right:20px;">Date of Birth</span><asp:TextBox style="margin-right:20px;" runat="server" ID="date_of_birth" onfocus="(this.type='date')" class="textbox" placeholder="Date of Birth" disabled/><br /><br />
-    <span class="name" style="margin-right:14px;">Contact Number</span><asp:TextBox style="margin-right:20px;" runat="server" ID="contact_number1" class="textbox" type="number" placeholder="Contact Number" disabled/>
-    <span class="name" style="margin-right:60px;">Gender</span><asp:TextBox style="margin-right:20px;"  runat="server" ID="gender" class="textbox" placeholder="Gender" disabled/><br /><br />
-    <span class="name" style="margin-right:98px;">State</span><asp:TextBox style="margin-right:20px;" runat="server" ID="state" class="textbox" placeholder="State" disabled/>
-    <span class="name" style="margin-right:83px;">City</span><asp:TextBox style="margin-right:20px;"  runat="server" ID="city" class="textbox" placeholder="City" disabled/><br /><br />
-    <span class="name" style="margin-right:93px;">Street</span><asp:TextBox style="margin-right:20px;"  runat="server" ID="street" class="textbox" placeholder="Street" disabled/>
-    <span class="name" style="margin-right:55px;">Pincode</span><asp:TextBox style="margin-right:20px;" runat="server" ID="pincode" class="textbox" placeholder="Pincode" disabled/><br /><br />
+    <span class="name" style="margin-right:52.5px;">First Name</span><asp:TextBox style="margin-top:20px;margin-right:20px; " runat="server" ID="first_name" class="textbox" placeholder="Null" disabled/>
+    <span class="name" style="margin-right:35.5px;">Last Name</span><asp:TextBox style="margin-top:20px;margin-right:20px; " runat="server" ID="last_name" class="textbox" placeholder="Null" disabled/><br /><br />
+    <span class="name" style="margin-right:92px;">Email</span><asp:TextBox style="margin-right:20px;" runat="server" ID="email1" class="textbox" type="email" placeholder="Null" disabled/>
+    <span class="name" style="margin-right:20px;">Date of Birth</span><asp:TextBox style="margin-right:20px;" runat="server" ID="date_of_birth" onfocus="(this.type='date')" class="textbox" placeholder="Null" disabled/><br /><br />
+    <span class="name" style="margin-right:14px;">Contact Number</span><asp:TextBox style="margin-right:20px;" runat="server" ID="contact_number1" class="textbox" type="number" placeholder="Null" disabled/>
+    <span class="name" style="margin-right:60px;">Gender</span><asp:TextBox style="margin-right:20px;"  runat="server" ID="gender" class="textbox" placeholder="Null" disabled/><br /><br />
+    <span class="name" style="margin-right:98px;">State</span><asp:TextBox style="margin-right:20px;" runat="server" ID="state" class="textbox" placeholder="Null" disabled/>
+    <span class="name" style="margin-right:83px;">City</span><asp:TextBox style="margin-right:20px;"  runat="server" ID="city" class="textbox" placeholder="Null" disabled/><br /><br />
+    <span class="name" style="margin-right:93px;">Street</span><asp:TextBox style="margin-right:20px;"  runat="server" ID="street" class="textbox" placeholder="Null" disabled/>
+    <span class="name" style="margin-right:55px;">Pincode</span><asp:TextBox style="margin-right:20px;" runat="server" ID="pincode" class="textbox" placeholder="Null" disabled/><br /><br />
     <br />
     <a style="margin-left:350px;color:rgba(0,0,0,0.3);margin-top:30px;font-size:16px;" href="admin_employee_particulars">Get back to employees!</a>
     </div>
@@ -170,16 +170,16 @@ button{
     <asp:PlaceHolder runat="server" ID="professional_details">
     <div class="drop">
     <!-- Assign Tasks -->
-    <span class="name" style="margin-right:75.5px;">Full Name</span><asp:TextBox style="margin-top:20px;margin-right:20px; " runat="server" ID="full_name" class="textbox" placeholder="Full Name" disabled/>
-    <span class="name" style="margin-right:95.5px;">Email</span><asp:TextBox style="margin-top:20px;margin-right:20px; " runat="server" ID="email" class="textbox" placeholder="Email" disabled/><br /><br />
-    <span class="name" style="margin-right:30px;">Contact Number</span><asp:TextBox style="margin-right:20px;" runat="server" ID="contact_number" class="textbox" type="email" placeholder="Contact Number" disabled/>
-    <span class="name" style="margin-right:45px;">Qualification</span><asp:TextBox style="margin-right:20px;" runat="server" ID="qualification" onfocus="(this.type='date')" class="textbox" placeholder="Qualification" disabled/><br /><br />
-    <span class="name" style="margin-right:30px;">Passed Out Year</span><asp:TextBox style="margin-right:20px;" runat="server" ID="passed_out_year" class="textbox" type="number" placeholder="Passed Out Year" disabled/>
-    <span class="name" style="margin-right:75px;">Skill Sets</span><asp:TextBox style="margin-right:20px;"  runat="server" ID="skill_sets" class="textbox" placeholder="Skill Sets" disabled/><br /><br />
-    <span class="name" style="margin-right:17px;">Working Company</span><asp:TextBox style="margin-right:20px;" runat="server" ID="working_company" class="textbox" placeholder="Working Company" disabled/>
-    <span class="name" style="margin-right:20px;">Working Domain</span><asp:TextBox style="margin-right:20px;"  runat="server" ID="working_domain" class="textbox" placeholder="Working Domain" disabled/><br /><br />
-    <span class="name" style="margin-right:57px;">Working City</span><asp:TextBox style="margin-right:20px;"  runat="server" ID="working_city" class="textbox" placeholder="Working City" disabled/>
-    <span class="name" style="margin-right:62px;">Experience</span><asp:TextBox style="margin-right:20px;" runat="server" ID="experience" class="textbox" placeholder="Experience" disabled/><br /><br />
+    <span class="name" style="margin-right:75.5px;">Full Name</span><asp:TextBox style="margin-top:20px;margin-right:20px; " runat="server" ID="full_name" class="textbox" placeholder="Null" disabled/>
+    <span class="name" style="margin-right:95.5px;">Email</span><asp:TextBox style="margin-top:20px;margin-right:20px; " runat="server" ID="email" class="textbox" placeholder="Null" disabled/><br /><br />
+    <span class="name" style="margin-right:30px;">Contact Number</span><asp:TextBox style="margin-right:20px;" runat="server" ID="contact_number" class="textbox" type="email" placeholder="Null" disabled/>
+    <span class="name" style="margin-right:45px;">Qualification</span><asp:TextBox style="margin-right:20px;" runat="server" ID="qualification" onfocus="(this.type='date')" class="textbox" placeholder="Null" disabled/><br /><br />
+    <span class="name" style="margin-right:30px;">Passed Out Year</span><asp:TextBox style="margin-right:20px;" runat="server" ID="passed_out_year" class="textbox" type="number" placeholder="Null" disabled/>
+    <span class="name" style="margin-right:75px;">Skill Sets</span><asp:TextBox style="margin-right:20px;"  runat="server" ID="skill_sets" class="textbox" placeholder="Null" disabled/><br /><br />
+    <span class="name" style="margin-right:17px;">Working Company</span><asp:TextBox style="margin-right:20px;" runat="server" ID="working_company" class="textbox" placeholder="Null" disabled/>
+    <span class="name" style="margin-right:20px;">Working Domain</span><asp:TextBox style="margin-right:20px;"  runat="server" ID="working_domain" class="textbox" placeholder="Null" disabled/><br /><br />
+    <span class="name" style="margin-right:57px;">Working City</span><asp:TextBox style="margin-right:20px;"  runat="server" ID="working_city" class="textbox" placeholder="Null" disabled/>
+    <span class="name" style="margin-right:62px;">Experience</span><asp:TextBox style="margin-right:20px;" runat="server" ID="experience" class="textbox" placeholder="Null" disabled/><br /><br />
     <br />
     <a style="margin-left:350px;color:rgba(0,0,0,0.3);font-size:16px;" href="admin_employee_particulars">Get back to employees!</a>
     </div>

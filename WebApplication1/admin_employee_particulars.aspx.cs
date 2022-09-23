@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
@@ -13,34 +14,63 @@ namespace WebApplication1
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["direct_all"] == "true")
+            if (!IsPostBack)
             {
-                emp_details.Visible = true;
-                view_details.Visible = false;
-                Session["direct_all"] = "";
-                SqlConnection connection = new SqlConnection("Data Source=LAPTOP-IPNJ48D\\SQLEXPRESS;Initial Catalog=bpo;Integrated Security=true");
-                connection.Open();
-                SqlCommand cmd = new SqlCommand("select * from login where profile_type='employee'", connection);
-                SqlDataReader reader = cmd.ExecuteReader();
-                ListView1.DataSource = reader;
-                ListView1.DataBind();
-                all_employees.BackColor = System.Drawing.ColorTranslator.FromHtml("#f3f5f9");
-            }
-            else if (!IsPostBack)
-            {
-                emp_details.Visible = true;
-                view_details.Visible = false;
-                SqlConnection connection = new SqlConnection("Data Source=LAPTOP-IPNJ48D\\SQLEXPRESS;Initial Catalog=bpo;Integrated Security=true");
-                connection.Open();
-                SqlCommand cmd = new SqlCommand("select * from employee where registered_date>=DATEADD(day,-7, GETDATE())", connection);
-                SqlDataReader reader = cmd.ExecuteReader();
-                ListView1.DataSource = reader;
-                ListView1.DataBind();
-                new_employees.BackColor = System.Drawing.ColorTranslator.FromHtml("#f3f5f9");
+                try
+                {
+                    if (Session["direct_all"].ToString() == "true")
+                    {
+                        SqlConnection connection = new SqlConnection("Data Source=LAPTOP-IPNJ48D\\SQLEXPRESS;Initial Catalog=bpo;Integrated Security=true");
+                        connection.Open();
+                        SqlCommand cmd = new SqlCommand("select * from employee", connection);
+                        SqlDataReader reader = cmd.ExecuteReader();
+                        ListView1.DataSource = reader;
+                        ListView1.DataBind();
+                        all_employees.BackColor = System.Drawing.ColorTranslator.FromHtml("#f3f5f9");
+                        new_employees.BackColor = System.Drawing.ColorTranslator.FromHtml("#fff");
+                        emp_details.Visible = true;
+                        view_details.Visible = false;
+                        connection.Close();
+                    }
+                    else
+                    {
+                        Session["direct_all"] = "false";
+                        emp_details.Visible = true;
+                        view_details.Visible = false;
+                        SqlConnection connection = new SqlConnection("Data Source=LAPTOP-IPNJ48D\\SQLEXPRESS;Initial Catalog=bpo;Integrated Security=true");
+                        connection.Open();
+                        SqlCommand cmd = new SqlCommand("select * from employee where registered_date>=DATEADD(day,-7, GETDATE())", connection);
+                        SqlDataReader reader = cmd.ExecuteReader();
+                        ListView1.DataSource = reader;
+                        ListView1.DataBind();
+                        new_employees.BackColor = System.Drawing.ColorTranslator.FromHtml("#f3f5f9");
+                        all_employees.BackColor = System.Drawing.ColorTranslator.FromHtml("#fff");
+                        connection.Close();
+                    }
+                }
+                catch(Exception exp)
+                {
+                    Session["direct_all"] = "false";
+                    emp_details.Visible = true;
+                    view_details.Visible = false;
+                    SqlConnection connection = new SqlConnection("Data Source=LAPTOP-IPNJ48D\\SQLEXPRESS;Initial Catalog=bpo;Integrated Security=true");
+                    connection.Open();
+                    SqlCommand cmd = new SqlCommand("select * from employee where registered_date>=DATEADD(day,-7, GETDATE())", connection);
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    ListView1.DataSource = reader;
+                    ListView1.DataBind();
+                    new_employees.BackColor = System.Drawing.ColorTranslator.FromHtml("#f3f5f9");
+                    all_employees.BackColor = System.Drawing.ColorTranslator.FromHtml("#fff");
+                    ListView1.Visible = true;
+                    view_details.Visible = false;
+                    connection.Close();
+                }
             }
         }
         protected void new_emp_Click(object sender, EventArgs e)
         {
+            emp_details.Visible = true;
+            view_details.Visible = false;
             SqlConnection connection = new SqlConnection("Data Source=LAPTOP-IPNJ48D\\SQLEXPRESS;Initial Catalog=bpo;Integrated Security=true");
             connection.Open();
             SqlCommand cmd = new SqlCommand("select * from employee where registered_date>=DATEADD(day,-7, GETDATE())", connection);
@@ -49,9 +79,13 @@ namespace WebApplication1
             ListView1.DataBind();
             new_employees.BackColor = System.Drawing.ColorTranslator.FromHtml("#f3f5f9");
             all_employees.BackColor = System.Drawing.ColorTranslator.FromHtml("#fff");
+            Session["direct_all"] = "false";
+            connection.Close();
         }
         protected void all_emp_Click(object sender, EventArgs e)
         {
+            emp_details.Visible = true;
+            view_details.Visible = false;
             SqlConnection connection = new SqlConnection("Data Source=LAPTOP-IPNJ48D\\SQLEXPRESS;Initial Catalog=bpo;Integrated Security=true");
             connection.Open();
             SqlCommand cmd = new SqlCommand("select * from employee", connection);
@@ -60,10 +94,8 @@ namespace WebApplication1
             ListView1.DataBind();
             all_employees.BackColor = System.Drawing.ColorTranslator.FromHtml("#f3f5f9");
             new_employees.BackColor = System.Drawing.ColorTranslator.FromHtml("#fff");
-        }
-        protected void assign_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("admin_assign_task");
+            Session["direct_all"] = "true";
+            connection.Close();
         }
         protected void view_Click(object sender, EventArgs e)
         {
@@ -99,6 +131,7 @@ namespace WebApplication1
                 street.Text = reader["street"].ToString();
                 pincode.Text = reader["pincode"].ToString();
             }
+            connection.Close();
         }
         protected void professional_details_Click(object sender, EventArgs e)
         {
@@ -125,6 +158,7 @@ namespace WebApplication1
                 working_city.Text = reader["working_city"].ToString();
                 experience.Text = reader["experience"].ToString();
             }
+            connection.Close();
         }
         protected void personal_details_Click(object sender, EventArgs e)
         {
@@ -151,6 +185,11 @@ namespace WebApplication1
                 street.Text = reader["street"].ToString();
                 pincode.Text = reader["pincode"].ToString();
             }
+            connection.Close();
+        }
+        protected void assign_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("admin_assign_task");
         }
         protected void delete_Click(object sender, EventArgs e)
         {
@@ -158,14 +197,12 @@ namespace WebApplication1
             Guid id = new Guid(btn.CommandArgument);
             SqlConnection connection = new SqlConnection("Data Source=LAPTOP-IPNJ48D\\SQLEXPRESS;Initial Catalog=bpo;Integrated Security=true");
             connection.Open();
-            SqlCommand cmd = new SqlCommand("delete from login where id='"+id+"'", connection);
+            SqlCommand c = new SqlCommand("delete from login where email=(select email from employee where id='" + id + "')", connection);
+            c.ExecuteNonQuery();
+            SqlCommand cmd = new SqlCommand("delete from employee where id='"+id+"'", connection);
             cmd.ExecuteNonQuery();
-            Session["direct_all"] = "true";
             Response.Redirect("admin_employee_particulars");
-        }
-        protected void submit_Click(object sender, EventArgs e)
-        {
-            
+            connection.Close();
         }
     }
 }
