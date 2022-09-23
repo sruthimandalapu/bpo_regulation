@@ -314,7 +314,7 @@ i{
                 <%--Site Scripts--%>
             </Scripts>
         </asp:ScriptManager>
-        <%Session["direct_all"] = "false"; Session["task_status"]="viewall"%>
+        <%Session["direct_all"] = "false"; Session["task_status"] = "viewall";%>
 
          <%
                   SqlConnection connection = new SqlConnection("Data Source=LAPTOP-IPNJ48D\\SQLEXPRESS;Initial Catalog=bpo;Integrated Security=true");

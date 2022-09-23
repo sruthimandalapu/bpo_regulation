@@ -22,6 +22,7 @@ namespace WebApplication1
             var form_last_name = last_name.Text;
             var form_email = email.Text;
             var form_registered_date= Convert.ToString(DateTime.Now.ToString("yyyy-MM-dd"));
+            var form_contact_number = contact_number.Text;
             var form_full_name = form_first_name + " " + form_last_name;
             var first = Convert.ToString(form_first_name[0]).ToUpper();
             var second = Convert.ToString(form_last_name[0]).ToUpper();
@@ -51,20 +52,22 @@ namespace WebApplication1
             }
             else
             {
-                Random rnd = new Random();
-                int otp= rnd.Next(10000,99999);
-                SqlCommand cmd = new SqlCommand("insert into login(id,first_name,last_name,full_name,email,profile,registered_date,otp,profile_type) values('"+
+                
+                SqlCommand cmd = new SqlCommand("insert into login(id,first_name,last_name,full_name,email,contact_number,profile,registered_date,profile_type) values('"+
                     form_id + "','" +
                     form_first_name + "','" +
                     form_last_name + "','" +
                     form_full_name +"','"+
                     form_email + "','" +
+                    form_contact_number + "','" +
                     form_profile + "','" +
                     form_registered_date + "','"+
-                    otp+"','" +
                     "employee"+"')"
                     , connection);
                 cmd.ExecuteNonQuery();
+                /*
+                Random rnd = new Random();
+                int otp= rnd.Next(10000,99999);
                 var smtpClient = new SmtpClient("smtp.gmail.com")
                 {
                     Port = 587,
@@ -80,9 +83,9 @@ namespace WebApplication1
                     IsBodyHtml = true,
                 };
                 mailMessage.To.Add(form_email);
-                smtpClient.Send(mailMessage);
-                connection.Close();
-                Response.Redirect("verify_password?email=" + form_email); ;
+                smtpClient.Send(mailMessage); */
+                connection.Close(); 
+                Response.Redirect("register1?email=" + form_email); ;
             }
         }
     }

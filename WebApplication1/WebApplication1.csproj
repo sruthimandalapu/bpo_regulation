@@ -134,6 +134,7 @@
     <Content Include="images\bpo.png" />
     <Content Include="login.aspx" />
     <Content Include="register.aspx" />
+    <Content Include="register1.aspx" />
     <Content Include="reset.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -246,6 +247,13 @@
     </Compile>
     <Compile Include="register.aspx.designer.cs">
       <DependentUpon>register.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="register1.aspx.cs">
+      <DependentUpon>register1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="register1.aspx.designer.cs">
+      <DependentUpon>register1.aspx</DependentUpon>
     </Compile>
     <Compile Include="reset.aspx.cs">
       <DependentUpon>reset.aspx</DependentUpon>

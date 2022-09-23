@@ -88,7 +88,6 @@
             }
     </style>
      
-
        <div class="container">
             <div class="row">
 
@@ -140,7 +139,7 @@
                         <div class="icon">
                             <i class="fa fa-users"></i>
                         </div> -->
-                        <a href="admin_status_close" class="card-box-footer">View More <i class="fa fa-arrow-circle-right"></i></a>
+                        <asp:LinkButton runat="server" ID="closedd" OnClick="close_Click" class="card-box-footer">View More <i class="fa fa-arrow-circle-right"></i></asp:LinkButton>
                         <% connection.Close(); %>
                     </div>
                 </div>

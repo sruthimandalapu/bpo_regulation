@@ -63,13 +63,14 @@ a{
   <img src="./images/bpo.png" height="550" width="850">
   </div>
     <form id="form1" runat="server">
-        <br><br /><br /><br /><br />
+        <br /><br /><br />
     <asp:Label ID="message" runat="server" />
     <asp:TextBox style="margin-top:30px;" runat="server" type="text" ID="first_name" class="textbox" placeholder="First Name.." required/><br /><br />
-        <asp:TextBox runat="server" type="text" ID="last_name" class="textbox" placeholder="Last Name.." required/><br /><br />
+    <asp:TextBox runat="server" type="text" ID="last_name" class="textbox" placeholder="Last Name.." required/><br /><br />
     <asp:TextBox runat="server" type="email" ID="email" class="textbox" placeholder="Email Address.." required/><br /><br />
-    <span><asp:Button runat="server" onclick="register_Click" class="submit" Text="register"/></span><br /><br />
-    <hr style="border:solid 1px rgba(0,0,0,0.1);width:25%;margin-left:7px;"/><br />
+        <asp:TextBox runat="server" type="number" ID="contact_number" class="textbox" placeholder="Contact Number.." required/><br /><br />
+    <span><asp:Button runat="server" onclick="register_Click" class="submit" Text="next"/></span><br /><br />
+    <hr style="border:solid 1px rgba(0,0,0,0.1);width:25%;margin-left:7px;"/>
     <a href="login"><p style="line-height:20px;" id="bot">Get back to login!</p></a>
     </form>
 </body>
