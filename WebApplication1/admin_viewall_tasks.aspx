@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="admin_viewall_tasks.aspx.cs" Inherits="WebApplication1.admin_viewall_tasks" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/Admin.Master" AutoEventWireup="true" CodeBehind="admin_viewall_tasks.aspx.cs" Inherits="WebApplication1.admin_viewall_tasks" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <%@ Import Namespace="System.Data.SqlClient" %>

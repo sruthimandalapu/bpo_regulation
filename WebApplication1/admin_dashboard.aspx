@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true"  CodeBehind="admin_dashboard.aspx.cs" Inherits="WebApplication1.admin_dashboard" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/Admin.Master" AutoEventWireup="true"  CodeBehind="admin_dashboard.aspx.cs" Inherits="WebApplication1.admin_dashboard" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
      <%@ Import Namespace="System.Data.SqlClient" %>  
