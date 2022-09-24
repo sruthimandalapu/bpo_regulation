@@ -65,6 +65,16 @@ namespace WebApplication1
                     "employee"+"')"
                     , connection);
                 cmd.ExecuteNonQuery();
+                var form_id1 = Guid.NewGuid();
+                SqlCommand c = new SqlCommand("insert into employee(id,full_name,email,contact_number,registered_date) values('" +
+                    form_id1 + "','" +
+                    form_full_name + "','" +
+                    form_email + "','" +
+                    form_contact_number + "','" +
+                    form_registered_date + "'" +
+                     ")"
+                    , connection);
+                c.ExecuteNonQuery();
                 /*
                 Random rnd = new Random();
                 int otp= rnd.Next(10000,99999);

@@ -61,14 +61,14 @@ a{
 <body>
     <form id="form1" runat="server" style="margin-left:30%;">
         <br /><br /><br />
-        <span style="color:rgba(0,0,0,0.23);font-family:Calibri;margin-left:160px;">A Step To Complete Registration Process!</span><br /><br /><br />
+        <span style="color:rgba(0,0,0,0.23);font-family:Calibri;margin-left:195px;">A Step To Complete Registration Process!</span><br /><br /><br />
         <asp:TextBox runat="server" type="text" ID="date_of_birth" onfocus="(this.type='date')" class="textbox" placeholder="Date of Birth.." required/>
         <asp:TextBox runat="server" type="text" ID="gender" class="textbox" placeholder="Gender.." required/><br /><br />
         <asp:TextBox runat="server" type="text" ID="residential_city" class="textbox" placeholder="Residential City.." required/>
         <asp:TextBox runat="server" type="text" ID="qualification" class="textbox" placeholder="Qualification.." required/><br /><br />
-        <asp:TextBox runat="server" type="text" ID="year_passed_out" class="textbox" placeholder="Year Passed Out.." required/>
+        <asp:TextBox runat="server" type="number" ID="year_passed_out" class="textbox" placeholder="Year Passed Out.." required/>
         <asp:TextBox runat="server" type="text" ID="skill_sets" class="textbox" placeholder="Skill Sets.." required/><br /><br />
-        <asp:TextBox runat="server" type="email" ID="working_company" class="textbox" placeholder="Working Company.." required/>
+        <asp:TextBox runat="server" type="text" ID="working_company" class="textbox" placeholder="Working Company.." required/>
         <asp:TextBox runat="server" type="text" ID="working_domain" class="textbox" placeholder="Working Domain.." required/><br /><br />
         <asp:TextBox runat="server" type="text" ID="working_city" class="textbox" placeholder="Working in City.." required/>
         <asp:TextBox runat="server" type="text" ID="Years_of_experience" class="textbox" placeholder="Years of Experience.." required/><br /><br />
