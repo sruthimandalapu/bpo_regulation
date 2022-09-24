@@ -1,8 +1,8 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/Admin.Master" AutoEventWireup="true" CodeBehind="admin_viewall_tasks.aspx.cs" Inherits="WebApplication1.admin_viewall_tasks" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/Employee.Master" AutoEventWireup="true" CodeBehind="employee_tasks.aspx.cs" Inherits="WebApplication1.employee_tasks" %>
 
-<asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
-    <%@ Import Namespace="System.Data.SqlClient" %>
-    <style>
+<asp:Content ID="Content3" ContentPlaceHolderID="MainContent1" runat="server">
+
+   <style>
         table {
             border-collapse: collapse;
             width: 950px;
@@ -108,7 +108,6 @@ button{
     color:rgba(0,0,0,0.35);
 }
     </style>
-    
     <asp:PlaceHolder runat="server" ID="tasks">
 
         <asp:Button Style="margin-left: 500px;" runat="server" ID="view_all" OnClick="view_all_Click" class="submit" Text="VIEW ALL TASKS" />
@@ -122,10 +121,10 @@ button{
                     <tr>
                         <th>TASK TITLE</th>
                         <th>TASK STATUS</th>
-                        <th>TASK ASSIGNED TO</th>
-                        <th>EMPLOYEE EMAIL ID</th>
-                        <th>EDIT</th>
-                        <th>DELETE</th>
+                        <th>TASK ASSIGNED BY</th>
+                        <th>TASK ISSUER MAILID</th>
+                        <th>VIEW DETAILS</th>
+                        <th>CLOSE THE TASK</th>
                     </tr>
                     <tr id="itemPlaceHolder" runat="server">
                     </tr>
@@ -137,38 +136,38 @@ button{
                 </td>
                 <td><%#DataBinder.Eval(Container,"DataItem.task_status") %>   
                 </td>
-                <td><%#DataBinder.Eval(Container,"DataItem.task_assigned_to_name") %>
+                <td><%#DataBinder.Eval(Container,"DataItem.task_assigned_by_name") %>
                 </td>
-                <td><%#DataBinder.Eval(Container,"DataItem.task_assigned_to_email")    %>           
+                <td><%#DataBinder.Eval(Container,"DataItem.task_assigned_by_email")    %>           
                 </td>
-                <td><asp:LinkButton runat="server" ID="edit" OnClick="edit_Click" CommandArgument='<%#DataBinder.Eval(Container,"DataItem.id")%>'><i style="color:rgba(0,0,0,0.4);padding-left:20px;" class="fas fa-edit"></i>
+                <td><asp:LinkButton runat="server" ID="edit" OnClick="view_Click" CommandArgument='<%#DataBinder.Eval(Container,"DataItem.id")%>'><i style="color:rgba(0,0,0,0.4);padding-left:20px;" class="fas fa-eye"></i>
                 </asp:LinkButton></td>
-                <td><asp:LinkButton runat="server" ID="delete" OnClick="delete_Click" CommandArgument='<%#DataBinder.Eval(Container,"DataItem.id")%>'><i style="color:rgba(0,0,0,0.4);padding-left:20px;" class="fas fa-trash"></i>
+                <td><asp:LinkButton runat="server" ID="delete" OnClick="close_Click" CommandArgument='<%#DataBinder.Eval(Container,"DataItem.id")%>'><i style="color:rgba(0,0,0,0.4);padding-left:20px;" class="fas fa-window-close"></i>
                 </asp:LinkButton></td>
             </tr>
         </ItemTemplate>
         </asp:ListView>
+
+
     </asp:PlaceHolder>
 
 
-
-
-    <asp:PlaceHolder runat="server" ID="edit_task">
+    <asp:PlaceHolder runat="server" ID="view_tasks">
     <div class="drop">
     <br />
     <asp:Label class="message" ID="message" runat="server" /><br />
-    <span class="name" style="margin-right:52.5px;">Project Name</span><asp:TextBox style="margin-top:20px;margin-right:20px;" runat="server" ID="project_name" class="textbox" type="text" placeholder="Null" required/>
-    <span class="name" style="margin-right:95.5px;">Priority</span><asp:TextBox style="margin-top:20px;margin-right:20px; " runat="server" ID="priority" class="textbox" type="text" placeholder="Null" required/><br /><br />
-    <span class="name" style="margin-right:30px;">Task Assigned To</span><asp:TextBox style="margin-right:20px;" runat="server" ID="task_assigned_to" class="textbox" type="text" placeholder="Null" required/>
-    <span class="name" style="margin-right:20px;">Employee Mail Id</span><asp:TextBox style="margin-right:20px;" runat="server" ID="employee_mail_id" class="textbox" type="email" placeholder="Null" required/><br /><br />
-    <span class="name" style="margin-right:85px;">Task Title</span><asp:TextBox style="margin-right:20px;" runat="server" ID="task_title" class="textbox" type="text" placeholder="Null" required/>
-    <span class="name" style="margin-right:66px;">Task Status</span><asp:TextBox style="margin-right:20px;"  runat="server" ID="task_status" class="textbox" type="text" placeholder="Null" required/><br /><br />
-    <span class="name" style="margin-right:30px;vertical-align: top;">Task Description</span><textarea type="text" style="resize:none;height:100px;width:740px;border-radius:30px;" runat="server" ID="task_description" class="textbox" placeholder="Task Description" required></textarea>
+    <span class="name" style="margin-right:52.5px;">Project Name</span><asp:TextBox style="margin-top:20px;margin-right:20px;" runat="server" ID="project_name" class="textbox" type="text" placeholder="Null" diabled/>
+    <span class="name" style="margin-right:95.5px;">Priority</span><asp:TextBox style="margin-top:20px;margin-right:20px; " runat="server" ID="priority" class="textbox" type="text" placeholder="Null" disabled/><br /><br />
+    <span class="name" style="margin-right:30px;">Task Assigned By</span><asp:TextBox style="margin-right:20px;" runat="server" ID="task_assigned_by" class="textbox" type="text" placeholder="Null" disabled/>
+    <span class="name" style="margin-right:20px;">Task Issuer Mailid</span><asp:TextBox style="margin-right:20px;" runat="server" ID="task_issuer_mailid" class="textbox" type="email" placeholder="Null" disabled/><br /><br />
+    <span class="name" style="margin-right:85px;">Task Title</span><asp:TextBox style="margin-right:20px;" runat="server" ID="task_title" class="textbox" type="text" placeholder="Null" disabled/>
+    <span class="name" style="margin-right:66px;">Task Status</span><asp:TextBox style="margin-right:20px;"  runat="server" ID="task_status" class="textbox" type="text" placeholder="Null" disabled/><br /><br />
+    <span class="name" style="margin-right:30px;vertical-align: top;">Task Description</span><textarea type="text" style="resize:none;height:100px;width:740px;border-radius:30px;" runat="server" ID="task_description" class="textbox" placeholder="Task Description" disabled></textarea>
     <br /><br />
-    <span><asp:Button runat="server" class="submit1" Text="submit" OnClick="task_Click"/></span><br /><br />
-    <a style="margin-left:370px;color:rgba(0,0,0,0.3);margin-top:30px;font-size:16px;" href="admin_viewall_tasks">Get back to employees!</a>
+    <a style="margin-left:370px;color:rgba(0,0,0,0.3);margin-top:30px;font-size:16px;" href="employee_tasks">Get back to tasks!</a>
     </div>
     </asp:PlaceHolder>
 
-    
+
+
 </asp:Content>

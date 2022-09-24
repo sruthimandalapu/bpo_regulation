@@ -43,7 +43,6 @@ button{
 }
 </style>
 
-
     <div class="drop">
     <!-- Assign Tasks -->
     <asp:Label class="message" ID="message" runat="server" /><br />

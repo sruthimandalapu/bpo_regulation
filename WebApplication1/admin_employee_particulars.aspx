@@ -90,7 +90,7 @@ button{
     color:rgba(0,0,0,0.35);
 }
     </style>
-
+ 
     <asp:PlaceHolder runat="server" ID="emp_details">
     <asp:Button runat="server" ID="new_employees" OnClick="new_emp_Click" class="submit" Text="NEW EMPLOYEES" Style="margin-left: 590px;margin-right:10px;" />
     <asp:Button runat="server" ID="all_employees" OnClick="all_emp_Click" class="submit" Text="ALL EMPLOYEES" />

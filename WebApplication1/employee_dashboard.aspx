@@ -1,6 +1,7 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/Admin.Master" AutoEventWireup="true"  CodeBehind="admin_dashboard.aspx.cs" Inherits="WebApplication1.admin_dashboard" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Employee.Master" AutoEventWireup="true" CodeBehind="employee_dashboard.aspx.cs" Inherits="WebApplication1.employee_dashboard" %>
 
-<asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
+<asp:Content ID="Content3" ContentPlaceHolderID="MainContent1" runat="server">
+
      <%@ Import Namespace="System.Data.SqlClient" %>  
     <!--
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -90,6 +91,7 @@
      
        <div class="container">
             <div class="row">
+                <%Session["direct_all"] = "false"; Session["task_status"] = "viewall";%>
                 <div class="div1" style="width:230px;float:left;margin-right:30px;">
                     <div class="card-box bg-blue">
                         <div class="inner">
@@ -97,7 +99,7 @@
                                 <%
                   SqlConnection connection = new SqlConnection("Data Source=LAPTOP-IPNJ48D\\SQLEXPRESS;Initial Catalog=bpo;Integrated Security=true");
                   connection.Open();
-                  SqlCommand c = new SqlCommand("select count(*) c from login where registered_date BETWEEN GETDATE()-7 AND GETDATE() AND profile_type='employee'", connection);  
+                  SqlCommand c = new SqlCommand("select count(*) c from tasks where task_assigned_to_email='" + Session["email"]+"'", connection);  
                   SqlDataReader r = c.ExecuteReader();
                   if (r.Read())
                   { %>
@@ -107,13 +109,13 @@
                 %>
 
                             </h3>
-                            <p> New Emp Registered</p>
+                            <p>Tasks Assigned</p>
                         </div>
 						<!--
                         <div class="icon">
                             <i class="fa fa-users" aria-hidden="true"></i>
                         </div> -->
-                        <a href="admin_employee_particulars" class="card-box-footer">View More <i class="fa fa-arrow-circle-right"></i></a>
+                        <a href="employee_tasks" class="card-box-footer">View More <i class="fa fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
 
@@ -122,7 +124,7 @@
                         <div class="inner">
                             <h3> 
                             <%
-               SqlCommand cmd = new SqlCommand("select count(*) c from tasks where task_closed_date BETWEEN GETDATE()-7 AND GETDATE() AND task_status='Closed' AND task_assigned_by_email='" + Session["email"]+"'", connection);  
+               SqlCommand cmd = new SqlCommand("select count(*) c from issues where emp_mail='" + Session["email"]+"'", connection);  
                SqlDataReader rea = cmd.ExecuteReader();
                if (rea.Read())
                   { %>
@@ -132,13 +134,13 @@
                 %>
                         
                             </h3>
-                            <p> Status Closed </p>
+                            <p> Issues Raised </p>
                         </div>
 						<!--
                         <div class="icon">
                             <i class="fa fa-users"></i>
                         </div> -->
-                        <asp:LinkButton runat="server" ID="closedd" OnClick="close_Click" class="card-box-footer">View More <i class="fa fa-arrow-circle-right"></i></asp:LinkButton>
+                        <a href="employee_viewall_issues" class="card-box-footer">View More <i class="fa fa-arrow-circle-right"></i></a>
                         <% connection.Close(); %>
                     </div>
                 </div>

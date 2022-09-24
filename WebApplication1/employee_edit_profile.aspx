@@ -1,8 +1,9 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/Admin.Master" AutoEventWireup="true" CodeBehind="admin_edit_profile.aspx.cs" Inherits="WebApplication1.admin_edit_profile" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/Employee.Master" AutoEventWireup="true" CodeBehind="employee_edit_profile.aspx.cs" Inherits="WebApplication1.employee_edit_profile" %>
 
-<asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
+<asp:Content ID="Content3" ContentPlaceHolderID="MainContent1" runat="server">
 
-     <style>
+
+    <style>
         .drop{
             margin-left:350px;
             margin-top:30px;
@@ -47,6 +48,7 @@ button{
 
 </style>
 
+    
     <div class="drop">
     <!-- Assign Tasks -->
     <asp:Label class="message" ID="message" runat="server"/><br />
@@ -70,6 +72,5 @@ button{
     <span><asp:Button runat="server" class="submit" OnClick="edit_Click" Text="update" /></span><br /><br />
     </div>
 
-
-
+    
 </asp:Content>

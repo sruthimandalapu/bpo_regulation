@@ -18,5 +18,15 @@ namespace WebApplication1
             Session.Abandon();
             Response.Redirect("login");
         }
+        protected void task_function_Click(object sender, EventArgs e)
+        {
+            Session["task_status"] = "viewall";
+            Response.Redirect("admin_viewall_tasks");
+        }
+        protected void emp_function_Click(object sender, EventArgs e)
+        {
+            Session["direct_all"] = "false";
+            Response.Redirect("admin_employee_particulars");
+        }
     }
 }

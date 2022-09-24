@@ -1,19 +1,370 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Employee.Master.cs" Inherits="WebApplication1.Site1" %>
-
 <!DOCTYPE html>
 
 <html>
 <head runat="server">
-    <title></title>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
+    <title>BPO</title>
+    <%@ Import Namespace="System.Data.SqlClient" %>  
+
+    <!-- <link rel="stylesheet" href="./Content/dashboard.css" /> -->
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+
+
+
+    <style>
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap');
+
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+  text-decoration: none;
+  font-family: 'Josefin Sans', sans-serif; 
+  /* font-family:Calibri; */
+  
+}
+.h2{
+    font-size:25px;
+}
+body{
+   background-color: #f3f5f9;
+}
+
+.wrapper1{
+  display: flex;
+  position: relative;
+}
+
+.wrapper1 .sidebar1{
+  width: 270px;
+  height: 100%;
+  background: #002B5B; 
+  padding: 30px 0px;
+  position: fixed;
+}
+.wrapper1 .sidebar1{
+    padding-top:23px;
+}
+
+.wrapper1 .sidebar1 .h2{
+  color: #fff;
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.wrapper1 .sidebar1 ul li{
+  padding: 11px;
+  /*border-bottom: 1px solid #bdb8d7;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+  border-top: 1px solid rgba(255,255,255,0.05); */
+}    
+
+.wrapper1 .sidebar1 ul li a{
+  color: #fff;
+  display: block;
+}
+
+.wrapper1 .sidebar1 ul li a .fas{
+  width: 20px;
+  margin-left:10px;
+}
+
+.wrapper1 .sidebar1 ul li:hover{
+  background-color: #607EAA;
+}
+    
+.wrapper1 .sidebar1 ul li:hover a{
+  color: #fff;
+}
+ 
+.wrapper1 .sidebar1 .social_media{
+  position: absolute;
+  bottom: 0;
+  /*
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex; */
+}
+.wrapper1 .sidebar1 .social_media a{
+  display: block;
+  width: 40px;
+  background: #594f8d;
+  height: 10px;
+  line-height: 0px;
+  text-align: center;
+  margin: 0 5px;
+  color: #bdb8d7;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}   
+
+.wrapper1 .main_content{
+  width: 100%;
+  margin-left: 270px;
+}
+
+.wrapper1 .main_content .header{
+  padding: 0px;
+  background: #fff;
+  color: #717171;
+  text-align: right;
+}
+.header{
+    height:70px;
+}
+
+.wrapper1 .main_content .info{
+  margin: 20px;
+  color: #717171;
+  line-height: 25px;
+}
+
+.wrapper1 .main_content .info div{
+  margin-bottom: 10px;
+}
+@media (max-height: 500px){
+  .social_media{
+    display: none !important;
+  }
+}
+.social_media{
+    width: 100%;
+}
+
+
+
+
+.dropbtn {
+    margin-top:13px;
+    margin-right:10px;
+  background-color:#002B5B ;
+  color: white;
+  padding-right: 10px;
+  padding-left: 10px;
+  border-radius: 90px;
+  padding: 10px;
+  padding-top:14px;
+  padding-right:13px;
+  font-size: 15px;
+  border: none;
+  cursor: pointer;
+  box-shadow: 1px 1px 1px 1px rgba(0,0,0,0.05);
+  width:42px;
+  height:43px;
+  font-family: 'Josefin Sans', sans-serif; 
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+    margin-right:10px;
+    right:0;
+  display: none;
+  position: absolute;
+  background-color: #002B5B;
+  min-width: 200px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  border-radius: 3px;
+  font-family: 'Josefin Sans', sans-serif; 
+  text-align: left;
+}
+.dropdown-content a {
+  color: white;
+  padding-top:12px;
+  padding-bottom:12px;
+  padding-left:16px;
+  font-size:16px;
+  text-decoration: none;
+  display: block;
+  border-radius: 3px;
+}
+.dropdown-content a:hover {background-color: #607EAA;}
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+i{
+  margin-right: 20px;
+}
+.dropdown:hover .dropbtn {
+  /* background-color: #3e8e41; */
+}
+
+
+
+
+.footer{
+    bottom:0;
+    position:fixed;
+    margin-left:270px;
+    width:100%;
+    align-content:center;
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+
+
+
+
+/* Sidebar nav dropdown styles*/
+.nav-links{
+    font-family: 'Josefin Sans', sans-serif;
+  height: 100%;
+  /* padding: 30px 0 150px 0; */
+  /* overflow: auto; */
+}
+
+.nav-links li{
+  /* position: relative; */
+  list-style: none;
+  transition: all 0.4s ease;
+}
+
+.nav-links li .iocn-link{
+  display: flex; 
+  /* align-items: center; */
+  justify-content: space-between;
+}
+
+.nav-links li i{
+  /* height: 50px; */
+  width: 20px;
+  /*text-align: center;*/
+  /*line-height: 50px; */
+  color: #fff;
+  font-size: 18px;
+  cursor: pointer;
+  /* transition: all 0.3s ease; */
+}
+.nav-links li.showMenu i.arrow{
+  transform: rotate(-180deg);
+}
+
+.nav-links li a{
+  /*display: flex; */
+  /*align-items: center; */
+  text-decoration: none;
+}
+.nav-links li a .link_name{
+  font-size: 16px;
+  /*font-weight: 400; */
+  color: #fff;
+  transition: all 0.4s ease;
+}
+
+ .nav-links li .sub-menu{
+  /*padding: 6px 6px 14px 80px;*/
+  padding:5px;
+  padding-top:0px;
+  padding-bottom:0px;
+  padding-left:37px;
+  /*background: #1d1b31;*/
+  display: none;
+}
+ .nav-links li.showMenu .sub-menu{
+  display: block;
+}
+ .nav-links li .sub-menu a{
+  color: #fff;
+  font-size: 16px;
+  word-spacing:0.45;
+  white-space: nowrap;
+  opacity: 0.6;
+  transition: all 0.3s ease;
+}
+ .nav-links li .sub-menu a:hover{
+  opacity: 1;
+}
+
+.nav-links li .sub-menu .link_name{
+  display: none;
+}
+
+</style>
+
+
+
+
 </head>
 <body>
     <form id="form1" runat="server">
         <div>
-            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-            </asp:ContentPlaceHolder>
+             <%
+                  SqlConnection connection = new SqlConnection("Data Source=LAPTOP-IPNJ48D\\SQLEXPRESS;Initial Catalog=bpo;Integrated Security=true");
+                  connection.Open();
+                %>
+
+        <div class="wrapper1">
+        <div class="sidebar1">
+        <p style="font-family: 'Josefin Sans', sans-serif;font-size:25px;margin-top:0px;padding-bottom:7px;" class="h2">BPO REGULATION</p>
+            <hr style="margin:10px;color:white;margin-left:15px;margin-right:15px;"/>
+
+        <ul >
+            <li><a href="employee_dashboard"><i class="fas fa-home"></i>Home</a></li>
+            <li><a href="employee_particulars"><i class="fas fa-users"></i>Employee Particulars</a></li>
+            <li><asp:LinkButton runat="server" ID="task_fun" OnClick="task_function_Click"><i class="fas fa-comment-alt"></i>Tasks</asp:LinkButton></li>
+            <ul class="nav-links">
+            <li>
+                <div class="iocn-link">
+                <a href="employee_issues_raised"><i class="fas fa-thumbtack"></i><span class="link_name">Issues</span></a><i class='bx bxs-chevron-down arrow' ></i>
+                </div>
+                    <ul class="sub-menu">
+                      <li ><a href="employee_raise_an_issue">Raise an issue</a></li>
+                      <li style="margin-left:10px;padding:0px;"><a href="employee_viewall_issues">View all issues</a></li>
+                    </ul>
+            </li>
+            </ul>
+            <li><a href="employee_documentation"><i class="fas fa-book"></i>Documentation</a></li>
+        </ul> 
+
         </div>
+
+        <div class="main_content">
+        <div class="header">
+            <div class="dropdown">
+              <button class="dropbtn">
+                  <%=Session["profile"] %>
+              </button>
+              <div class="dropdown-content">
+              <a href="admin_edit_profile"><i class="fas fa-edit"></i>Edit Profile</a>
+              <a href="admin_change_password"><i class="fas fa-unlock-alt"></i>Change Password</a>
+              <asp:LinkButton OnClick="logout_Click" runat="server" ID="logout"><i class="fas fa-sign-out-alt"></i>Logout</asp:LinkButton>
+              </div>
+            </div>
+        </div>
+     </div>
+
+        </div>
+
+        
+        
+        <div class="container1 body-content">
+            <asp:ContentPlaceHolder ID="MainContent1" runat="server">
+            </asp:ContentPlaceHolder>
+        <footer class="footer">
+                <hr style="color:rgba(0,0,0,0.07);margin-bottom:20px;"/>
+                <p style="margin-bottom:20px;margin-left:420px;color:rgba(0,0,0,0.3);">&copy; <%: DateTime.Now.Year %> - Bpo Regulation</p>
+            </footer>
+        </div>
+        <% connection.Close(); %>
     </form>
 </body>
+    <script>
+        let arrow = document.querySelectorAll(".arrow");
+        for (var i = 0; i < arrow.length; i++) {
+            arrow[i].addEventListener("click", (e) => {
+                let arrowParent = e.target.parentElement.parentElement;//selecting main parent of arrow
+                arrowParent.classList.toggle("showMenu");
+            });
+        }
+    </script>
 </html>

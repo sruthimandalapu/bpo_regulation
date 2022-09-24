@@ -13,5 +13,15 @@ namespace WebApplication1
         {
 
         }
+        protected void logout_Click(object sender, EventArgs e)
+        {
+            Session.Abandon();
+            Response.Redirect("login");
+        }
+        protected void task_function_Click(object sender, EventArgs e)
+        {
+            Session["emp_status"] = "viewall";
+            Response.Redirect("employee_tasks");
+        }
     }
 }

@@ -314,7 +314,6 @@ i{
                 <%--Site Scripts--%>
             </Scripts>
         </asp:ScriptManager>
-        <%Session["direct_all"] = "false"; Session["task_status"] = "viewall";%>
 
          <%
                   SqlConnection connection = new SqlConnection("Data Source=LAPTOP-IPNJ48D\\SQLEXPRESS;Initial Catalog=bpo;Integrated Security=true");
@@ -328,6 +327,7 @@ i{
 
         <ul >
             <li><a href="admin_dashboard"><i class="fas fa-home"></i>Home</a></li>
+            <li><asp:LinkButton runat="server" ID="emp_fun" OnClick="emp_function_Click"><i class="fas fa-users"></i>Employee Particulars</asp:LinkButton></li>
             <ul class="nav-links">
             <li>
                 <div class="iocn-link">
@@ -335,12 +335,11 @@ i{
                 </div>
                     <ul class="sub-menu">
                       <li ><a href="admin_assign_task">Assign a task</a></li>
-                      <li style="margin-left:10px;padding:0px;"><a href="admin_viewall_tasks">View all tasks</a></li>
+                      <li style="margin-left:10px;padding:0px;"><asp:LinkButton runat="server" ID="task_fun" OnClick="task_function_Click">View all tasks</asp:LinkButton></li>
                     </ul>
                 
             </li>
             </ul>
-            <li><a href="admin_employee_particulars"><i class="fas fa-users"></i>Employee Particulars</a></li>
             <li><a href="admin_issues_raised"><i class="fas fa-comment-alt"></i>Issues Raised</a></li>
             <li><a href="admin_documentation"><i class="fas fa-book"></i>Documentation</a></li>
         </ul> 

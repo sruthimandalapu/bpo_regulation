@@ -95,7 +95,7 @@
 }
     </style>
 
-
+    
     <asp:PlaceHolder runat="server" ID="issues">
     <asp:ListView ID="ListView1" runat="server">
     <LayoutTemplate> 

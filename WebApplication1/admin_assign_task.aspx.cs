@@ -42,7 +42,7 @@ namespace WebApplication1
                     form_priority + "','" +
                     form_task_assigned_to + "','" +
                     form_task_title + "','" +
-                    form_task_status + "','" +
+                    "Open" + "','" +
                     form_task_description + "','" +
                     form_task_assigned_name + "','" +
                     form_task_assigned_email + "','" +

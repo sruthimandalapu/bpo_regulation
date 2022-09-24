@@ -11,43 +11,43 @@ namespace WebApplication1
 {
 
 
-    public partial class SiteMaster
+    public partial class employee_change_password
     {
 
         /// <summary>
-        /// emp_fun control.
+        /// message control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton emp_fun;
+        protected global::System.Web.UI.WebControls.Label message;
 
         /// <summary>
-        /// task_fun control.
+        /// current_password control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton task_fun;
+        protected global::System.Web.UI.WebControls.TextBox current_password;
 
         /// <summary>
-        /// logout control.
+        /// new_password control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton logout;
+        protected global::System.Web.UI.WebControls.TextBox new_password;
 
         /// <summary>
-        /// MainContent control.
+        /// confirm_new_password control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder MainContent;
+        protected global::System.Web.UI.WebControls.TextBox confirm_new_password;
     }
 }

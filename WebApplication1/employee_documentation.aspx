@@ -1,7 +1,7 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/Admin.Master" AutoEventWireup="true" CodeBehind="admin_documentation.aspx.cs" Inherits="WebApplication1.admin_documentation" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/Employee.Master" AutoEventWireup="true" CodeBehind="employee_documentation.aspx.cs" Inherits="WebApplication1.employee_documentation" %>
 
-<asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
-     <style>
+<asp:Content ID="Content3" ContentPlaceHolderID="MainContent1" runat="server">
+    <style>
 .drop{
             margin-left:300px;
             margin-top:30px;
@@ -9,6 +9,7 @@
             font-family: 'Josefin Sans', sans-serif; 
         }
     </style>
+    
     <div class="drop"> <!-- https://assets.website-files.com/5d5c16d603533221377e9f59/5e75ca859105fa3c52dcf589_inbound.svg -->
     <div style="float:left;"">
     <img  style="width:500px;height:400px;fill:rgba(0,0,0,0.5);filter: grayscale(100%);" src="./images/bpo1.svg" /> 
@@ -21,5 +22,4 @@
         is processed by admin. The employee performs the functionalities assigned and in case of issues, can be raised which can be viewed from the end of admin.
     </div>
     </div>
-
 </asp:Content>
