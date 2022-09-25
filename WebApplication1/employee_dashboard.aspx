@@ -115,7 +115,7 @@
                         <div class="icon">
                             <i class="fa fa-users" aria-hidden="true"></i>
                         </div> -->
-                        <a href="employee_tasks" class="card-box-footer">View More <i class="fa fa-arrow-circle-right"></i></a>
+                        <asp:LinkButton runat="server" onclick="employee_tasks_Click" class="card-box-footer">View More <i class="fa fa-arrow-circle-right"></i></asp:LinkButton>
                     </div>
                 </div>
 
@@ -140,7 +140,7 @@
                         <div class="icon">
                             <i class="fa fa-users"></i>
                         </div> -->
-                        <a href="employee_viewall_issues" class="card-box-footer">View More <i class="fa fa-arrow-circle-right"></i></a>
+                        <asp:LinkButton runat="server" onclick="employee_viewall_issues_Click" class="card-box-footer">View More <i class="fa fa-arrow-circle-right"></i></asp:LinkButton>
                         <% connection.Close(); %>
                     </div>
                 </div>

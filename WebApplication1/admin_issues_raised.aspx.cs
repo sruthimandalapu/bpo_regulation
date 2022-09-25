@@ -42,10 +42,11 @@ namespace WebApplication1
             issues.Visible = false;
             reply.Visible = true;
             var id = Session["reply_id"];
+            var form_closed_on= DateTime.Now.ToString("yyyy-MM-dd");
             var form_comments = comments.InnerText;
             SqlConnection connection = new SqlConnection("Data Source=LAPTOP-IPNJ48D\\SQLEXPRESS;Initial Catalog=bpo;Integrated Security=true");
             connection.Open();
-            SqlCommand cmd = new SqlCommand("update issues set status='Resolved' , reply='" + form_comments + "', replied_by='" + Session["full_name"] + "', replied_by_email='" + Session["email"] + "' where id='" + id + "'", connection);
+            SqlCommand cmd = new SqlCommand("update issues set status='Resolved' , issue_closed_on='"+form_closed_on+ "', reply='" + form_comments + "', replied_by='" + Session["full_name"] + "', replied_by_email='" + Session["email"] + "' where id='" + id + "'", connection);
             cmd.ExecuteNonQuery();
             connection.Close();
             message.Text = "Reply is sent!";

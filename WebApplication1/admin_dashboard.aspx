@@ -113,7 +113,7 @@
                         <div class="icon">
                             <i class="fa fa-users" aria-hidden="true"></i>
                         </div> -->
-                        <a href="admin_employee_particulars" class="card-box-footer">View More <i class="fa fa-arrow-circle-right"></i></a>
+                        <asp:LinkButton ID="new_emp" runat="server" OnClick="new_emp_Click" class="card-box-footer">View More <i class="fa fa-arrow-circle-right"></i></asp:LinkButton>
                     </div>
                 </div>
 

@@ -13,5 +13,14 @@ namespace WebApplication1
         {
 
         }
+        protected void employee_tasks_Click(object sender, EventArgs e)
+        {
+            Session["emp_status"] = "viewall";
+            Response.Redirect("employee_tasks");
+        }
+        protected void employee_viewall_issues_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("employee_viewall_issues");
+        }
     }
 }

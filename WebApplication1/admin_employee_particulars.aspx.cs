@@ -199,6 +199,10 @@ namespace WebApplication1
             connection.Open();
             SqlCommand c = new SqlCommand("delete from login where email=(select email from employee where id='" + id + "')", connection);
             c.ExecuteNonQuery();
+            SqlCommand cm = new SqlCommand("delete from tasks where task_assigned_to_email=(select email from employee where id='" + id + "')", connection);
+            cm.ExecuteNonQuery();
+            SqlCommand command = new SqlCommand("delete from issues where emp_mail=(select email from employee where id='" + id + "')", connection);
+            command.ExecuteNonQuery();
             SqlCommand cmd = new SqlCommand("delete from employee where id='"+id+"'", connection);
             cmd.ExecuteNonQuery();
             Response.Redirect("admin_employee_particulars");
