@@ -141,7 +141,7 @@
     <asp:TextBox runat="server" style="margin-left:30px;" ID="emp_email_id" class="textbox" placeholder="Employee Email ID" type="email" disabled/><br /><br />
     <textarea type="text" style="resize:none;height:100px;width:570px;border-radius:35px;" runat="server" ID="comments" class="textbox" placeholder="Comments" required></textarea><br /><br />
     <span><asp:Button runat="server" class="submit1" Text="submit" OnClick="reply1_Click"/></span><br /><br />
-    <a href="admin_issues_raised"><p style="line-height:20px;margin-left:220px;color:#002B5B;" id="bot">Get back to Issues!</p></a>
+    <a href="admin_issues_raised"><p style="line-height:20px;margin-left:220px;color:rgba(0,0,0,0.3);" id="bot">Get back to Issues!</p></a>
     </div>
     </asp:PlaceHolder>
 
