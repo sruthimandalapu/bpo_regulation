@@ -18,7 +18,7 @@
   color:rgba(0,0,0,0.45);
 }
 .submit,button{
-    margin-left:280px;
+    margin-left:305px;
   width: 26%;
   border-radius:40px;
   height: 40px;

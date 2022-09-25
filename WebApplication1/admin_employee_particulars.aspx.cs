@@ -19,51 +19,14 @@ namespace WebApplication1
                 try
                 {
                     if (Session["direct_all"].ToString() == "true")
-                    {
-                        SqlConnection connection = new SqlConnection("Data Source=LAPTOP-IPNJ48D\\SQLEXPRESS;Initial Catalog=bpo;Integrated Security=true");
-                        connection.Open();
-                        SqlCommand cmd = new SqlCommand("select * from employee", connection);
-                        SqlDataReader reader = cmd.ExecuteReader();
-                        ListView1.DataSource = reader;
-                        ListView1.DataBind();
-                        all_employees.BackColor = System.Drawing.ColorTranslator.FromHtml("#f3f5f9");
-                        new_employees.BackColor = System.Drawing.ColorTranslator.FromHtml("#fff");
-                        emp_details.Visible = true;
-                        view_details.Visible = false;
-                        connection.Close();
-                    }
+                        all_emp_Click(sender, e);
                     else
-                    {
-                        Session["direct_all"] = "false";
-                        emp_details.Visible = true;
-                        view_details.Visible = false;
-                        SqlConnection connection = new SqlConnection("Data Source=LAPTOP-IPNJ48D\\SQLEXPRESS;Initial Catalog=bpo;Integrated Security=true");
-                        connection.Open();
-                        SqlCommand cmd = new SqlCommand("select * from employee where registered_date>=DATEADD(day,-7, GETDATE())", connection);
-                        SqlDataReader reader = cmd.ExecuteReader();
-                        ListView1.DataSource = reader;
-                        ListView1.DataBind();
-                        new_employees.BackColor = System.Drawing.ColorTranslator.FromHtml("#f3f5f9");
-                        all_employees.BackColor = System.Drawing.ColorTranslator.FromHtml("#fff");
-                        connection.Close();
-                    }
+                        new_emp_Click(sender, e);
+
                 }
                 catch(Exception exp)
                 {
-                    Session["direct_all"] = "false";
-                    emp_details.Visible = true;
-                    view_details.Visible = false;
-                    SqlConnection connection = new SqlConnection("Data Source=LAPTOP-IPNJ48D\\SQLEXPRESS;Initial Catalog=bpo;Integrated Security=true");
-                    connection.Open();
-                    SqlCommand cmd = new SqlCommand("select * from employee where registered_date>=DATEADD(day,-7, GETDATE())", connection);
-                    SqlDataReader reader = cmd.ExecuteReader();
-                    ListView1.DataSource = reader;
-                    ListView1.DataBind();
-                    new_employees.BackColor = System.Drawing.ColorTranslator.FromHtml("#f3f5f9");
-                    all_employees.BackColor = System.Drawing.ColorTranslator.FromHtml("#fff");
-                    ListView1.Visible = true;
-                    view_details.Visible = false;
-                    connection.Close();
+                    new_emp_Click(sender, e);
                 }
             }
         }
@@ -73,7 +36,7 @@ namespace WebApplication1
             view_details.Visible = false;
             SqlConnection connection = new SqlConnection("Data Source=LAPTOP-IPNJ48D\\SQLEXPRESS;Initial Catalog=bpo;Integrated Security=true");
             connection.Open();
-            SqlCommand cmd = new SqlCommand("select * from employee where registered_date>=DATEADD(day,-7, GETDATE())", connection);
+            SqlCommand cmd = new SqlCommand("select * from employee where registered_date>=DATEADD(day,-7, GETDATE()) order by registered_date desc", connection);
             SqlDataReader reader = cmd.ExecuteReader();
             ListView1.DataSource = reader;
             ListView1.DataBind();
@@ -88,7 +51,7 @@ namespace WebApplication1
             view_details.Visible = false;
             SqlConnection connection = new SqlConnection("Data Source=LAPTOP-IPNJ48D\\SQLEXPRESS;Initial Catalog=bpo;Integrated Security=true");
             connection.Open();
-            SqlCommand cmd = new SqlCommand("select * from employee", connection);
+            SqlCommand cmd = new SqlCommand("select * from employee order by registered_date desc", connection);
             SqlDataReader reader = cmd.ExecuteReader();
             ListView1.DataSource = reader;
             ListView1.DataBind();

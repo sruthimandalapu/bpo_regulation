@@ -17,66 +17,15 @@ namespace WebApplication1
             try
             {
                 if (Session["task_status"] == "open")
-                {
-                    SqlConnection connection = new SqlConnection("Data Source=LAPTOP-IPNJ48D\\SQLEXPRESS;Initial Catalog=bpo;Integrated Security=true");
-                    connection.Open();
-                    SqlCommand cmd = new SqlCommand("select * from tasks where task_status='Open' and task_assigned_by_email='" + Session["email"] + "'", connection);
-                    SqlDataReader reader = cmd.ExecuteReader();
-                    ListView1.DataSource = reader;
-                    ListView1.DataBind();
-                    view_all.BackColor = System.Drawing.ColorTranslator.FromHtml("#fff");
-                    status_open.BackColor = System.Drawing.ColorTranslator.FromHtml("#f3f5f9");
-                    status_close.BackColor = System.Drawing.ColorTranslator.FromHtml("#fff");
-                    tasks.Visible = true;
-                    edit_task.Visible = false;
-                    connection.Close();
-                }
+                    status_open_Click(sender, e);
                 else if (Session["task_status"] == "close")
-                {
-                    Session["task_status"] = "close";
-                    SqlConnection connection = new SqlConnection("Data Source=LAPTOP-IPNJ48D\\SQLEXPRESS;Initial Catalog=bpo;Integrated Security=true");
-                    connection.Open();
-                    SqlCommand cmd = new SqlCommand("select * from tasks where task_status='Closed' and task_assigned_by_email='" + Session["email"] + "'", connection);
-                    SqlDataReader reader = cmd.ExecuteReader();
-                    ListView1.DataSource = reader;
-                    ListView1.DataBind();
-                    view_all.BackColor = System.Drawing.ColorTranslator.FromHtml("#fff");
-                    status_open.BackColor = System.Drawing.ColorTranslator.FromHtml("#fff");
-                    status_close.BackColor = System.Drawing.ColorTranslator.FromHtml("#f3f5f9");
-                    tasks.Visible = true;
-                    edit_task.Visible = false;
-                    connection.Close();
-                }
+                    status_close_Click(sender, e);
                 else
-                {
-                    SqlConnection connection = new SqlConnection("Data Source=LAPTOP-IPNJ48D\\SQLEXPRESS;Initial Catalog=bpo;Integrated Security=true");
-                    connection.Open();
-                    SqlCommand cmd = new SqlCommand("select * from tasks where task_assigned_by_email='" + Session["email"] + "'", connection);
-                    SqlDataReader reader = cmd.ExecuteReader();
-                    ListView1.DataSource = reader;
-                    ListView1.DataBind();
-                    view_all.BackColor = System.Drawing.ColorTranslator.FromHtml("#f3f5f9");
-                    status_open.BackColor = System.Drawing.ColorTranslator.FromHtml("#fff");
-                    status_close.BackColor = System.Drawing.ColorTranslator.FromHtml("#fff");
-                    tasks.Visible = true;
-                    edit_task.Visible = false;
-                    connection.Close();
-                }
+                    view_all_Click(sender, e);
             }
             catch(Exception exp)
             {
-                SqlConnection connection = new SqlConnection("Data Source=LAPTOP-IPNJ48D\\SQLEXPRESS;Initial Catalog=bpo;Integrated Security=true");
-                connection.Open();
-                SqlCommand cmd = new SqlCommand("select * from tasks where task_assigned_by_email='" + Session["email"] + "'", connection);
-                SqlDataReader reader = cmd.ExecuteReader();
-                ListView1.DataSource = reader;
-                ListView1.DataBind();
-                view_all.BackColor = System.Drawing.ColorTranslator.FromHtml("#f3f5f9");
-                status_open.BackColor = System.Drawing.ColorTranslator.FromHtml("#fff");
-                status_close.BackColor = System.Drawing.ColorTranslator.FromHtml("#fff");
-                tasks.Visible = true;
-                edit_task.Visible = false;
-                connection.Close();
+                view_all_Click(sender, e);
             }
         }
         protected void view_all_Click(object sender, EventArgs e)
@@ -84,7 +33,7 @@ namespace WebApplication1
             Session["task_status"] = "viewall";
             SqlConnection connection = new SqlConnection("Data Source=LAPTOP-IPNJ48D\\SQLEXPRESS;Initial Catalog=bpo;Integrated Security=true");
             connection.Open();
-            SqlCommand cmd = new SqlCommand("select * from tasks where task_assigned_by_email='" + Session["email"] + "'", connection);
+            SqlCommand cmd = new SqlCommand("select * from tasks where task_assigned_by_email='" + Session["email"] + "' order by task_assigned_date desc", connection);
             SqlDataReader reader = cmd.ExecuteReader();
             ListView1.DataSource = reader;
             ListView1.DataBind();
@@ -100,7 +49,7 @@ namespace WebApplication1
             Session["task_status"] = "open";
             SqlConnection connection = new SqlConnection("Data Source=LAPTOP-IPNJ48D\\SQLEXPRESS;Initial Catalog=bpo;Integrated Security=true");
             connection.Open();
-            SqlCommand cmd = new SqlCommand("select * from tasks where task_status='Open' and task_assigned_by_email='" + Session["email"] + "'", connection);
+            SqlCommand cmd = new SqlCommand("select * from tasks where task_status='Open' and task_assigned_by_email='" + Session["email"] + "' order by task_assigned_date desc", connection);
             SqlDataReader reader = cmd.ExecuteReader();
             ListView1.DataSource = reader;
             ListView1.DataBind();
@@ -116,7 +65,7 @@ namespace WebApplication1
             Session["task_status"] = "close";
             SqlConnection connection = new SqlConnection("Data Source=LAPTOP-IPNJ48D\\SQLEXPRESS;Initial Catalog=bpo;Integrated Security=true");
             connection.Open();
-            SqlCommand cmd = new SqlCommand("select * from tasks where task_status='Closed' and task_assigned_by_email='" + Session["email"] + "'", connection);
+            SqlCommand cmd = new SqlCommand("select * from tasks where task_status='Closed' and task_assigned_by_email='" + Session["email"] + "' order by task_assigned_date desc", connection);
             SqlDataReader reader = cmd.ExecuteReader();
             ListView1.DataSource = reader;
             ListView1.DataBind();

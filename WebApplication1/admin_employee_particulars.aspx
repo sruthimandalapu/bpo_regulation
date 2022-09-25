@@ -157,7 +157,7 @@ button{
     <span class="name" style="margin-right:93px;">Street</span><asp:TextBox style="margin-right:20px;"  runat="server" ID="street" class="textbox" placeholder="Null" disabled/>
     <span class="name" style="margin-right:55px;">Pincode</span><asp:TextBox style="margin-right:20px;" runat="server" ID="pincode" class="textbox" placeholder="Null" disabled/><br /><br />
     <br />
-    <a style="margin-left:350px;color:rgba(0,0,0,0.3);margin-top:30px;font-size:16px;" href="admin_employee_particulars">Get back to employees!</a>
+    <a style="margin-left:348px;color:rgba(0,0,0,0.3);margin-top:30px;font-size:16px;" href="admin_employee_particulars">Get back to employees!</a>
     </div>
     </asp:PlaceHolder>
 
@@ -178,7 +178,7 @@ button{
     <span class="name" style="margin-right:57px;">Working City</span><asp:TextBox style="margin-right:20px;"  runat="server" ID="working_city" class="textbox" placeholder="Null" disabled/>
     <span class="name" style="margin-right:62px;">Experience</span><asp:TextBox style="margin-right:20px;" runat="server" ID="experience" class="textbox" placeholder="Null" disabled/><br /><br />
     <br />
-    <a style="margin-left:350px;color:rgba(0,0,0,0.3);font-size:16px;" href="admin_employee_particulars">Get back to employees!</a>
+    <a style="margin-left:348px;color:rgba(0,0,0,0.3);font-size:16px;" href="admin_employee_particulars">Get back to employees!</a>
     </div>
     </asp:PlaceHolder>
 

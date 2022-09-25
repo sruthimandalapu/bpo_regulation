@@ -16,7 +16,7 @@ namespace WebApplication1
             reply.Visible = false;
             SqlConnection connection = new SqlConnection("Data Source=LAPTOP-IPNJ48D\\SQLEXPRESS;Initial Catalog=bpo;Integrated Security=true");
             connection.Open();
-            SqlCommand cmd = new SqlCommand("select * from issues", connection);
+            SqlCommand cmd = new SqlCommand("select * from issues order by issue_raised_on desc", connection);
             SqlDataReader reader = cmd.ExecuteReader();
             ListView1.DataSource = reader;
             ListView1.DataBind();

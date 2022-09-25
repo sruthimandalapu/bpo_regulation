@@ -45,7 +45,7 @@ namespace WebApplication1
             view_tasks.Visible = false;
             SqlConnection connection = new SqlConnection("Data Source=LAPTOP-IPNJ48D\\SQLEXPRESS;Initial Catalog=bpo;Integrated Security=true");
             connection.Open();
-            SqlCommand cmd = new SqlCommand("select * from tasks where task_assigned_to_email='" + Session["email"] + "'", connection);
+            SqlCommand cmd = new SqlCommand("select * from tasks where task_assigned_to_email='" + Session["email"] + "' ORDER BY task_assigned_date DESC", connection);
             SqlDataReader reader = cmd.ExecuteReader();
             ListView1.DataSource = reader;
             ListView1.DataBind();
@@ -60,7 +60,7 @@ namespace WebApplication1
             view_tasks.Visible = false;
             SqlConnection connection = new SqlConnection("Data Source=LAPTOP-IPNJ48D\\SQLEXPRESS;Initial Catalog=bpo;Integrated Security=true");
             connection.Open();
-            SqlCommand cmd = new SqlCommand("select * from tasks where task_status='Open' and task_assigned_to_email='" + Session["email"] + "'", connection);
+            SqlCommand cmd = new SqlCommand("select * from tasks where task_status='Open' and task_assigned_to_email='" + Session["email"] + "' ORDER BY task_assigned_date DESC", connection);
             SqlDataReader reader = cmd.ExecuteReader();
             ListView1.DataSource = reader;
             ListView1.DataBind();
@@ -75,7 +75,7 @@ namespace WebApplication1
             view_tasks.Visible = false;
             SqlConnection connection = new SqlConnection("Data Source=LAPTOP-IPNJ48D\\SQLEXPRESS;Initial Catalog=bpo;Integrated Security=true");
             connection.Open();
-            SqlCommand cmd = new SqlCommand("select * from tasks where task_status='Closed' and task_assigned_to_email='" + Session["email"] + "'", connection);
+            SqlCommand cmd = new SqlCommand("select * from tasks where task_status='Closed' and task_assigned_to_email='" + Session["email"] + "' ORDER BY task_assigned_date DESC", connection);
             SqlDataReader reader = cmd.ExecuteReader();
             ListView1.DataSource = reader;
             ListView1.DataBind();

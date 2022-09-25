@@ -164,7 +164,7 @@ button{
     <span class="name" style="margin-right:66px;">Task Status</span><asp:TextBox style="margin-right:20px;"  runat="server" ID="task_status" class="textbox" type="text" placeholder="Null" disabled/><br /><br />
     <span class="name" style="margin-right:30px;vertical-align: top;">Task Description</span><textarea type="text" style="resize:none;height:100px;width:740px;border-radius:30px;" runat="server" ID="task_description" class="textbox" placeholder="Task Description" disabled></textarea>
     <br /><br />
-    <a style="margin-left:370px;color:rgba(0,0,0,0.3);margin-top:30px;font-size:16px;" href="employee_tasks">Get back to tasks!</a>
+    <a style="margin-left:385px;color:rgba(0,0,0,0.3);margin-top:40px;font-size:16px;" href="employee_tasks">Get back to tasks!</a>
     </div>
     </asp:PlaceHolder>
 
